@@ -3,7 +3,7 @@
 **Registration:** OSF 8st47 (DOI 10.17605/OSF.IO/8ST47), registered 1 Nov 2026.
 **Purpose of this file:** fix, in a dated commit, every decision rule that Amendment 1 adds to the registration, *before* the binary pilot (Section 6) is run and before any confirmatory dataset (Lee2019-MI, Cho2017, and Dreyer2023 if added) is downloaded. The commit history of this file is the evidence that the rules preceded the data. Any later change to this file is a deviation and must be listed in supplementary table S4 with its hash and reason.
 
-**Status at first commit:** no confirmatory dataset downloaded, opened or analysed; binary pilot not started.
+**Status at first commit (f3fc1449, 2026-11-08T09:09:39Z):** no confirmatory dataset downloaded, opened or analysed; binary pilot not started.
 
 Where this file and the registration differ, the registration wins for everything it specifies. This file only fills gaps and adds secondary analyses.
 
@@ -167,4 +167,4 @@ Allowed without counting as deviations only if confined to data loading / IO cod
 
 | Date | Commit | Change |
 |---|---|---|
-| [TO FILL] | [TO FILL] | first commit, before binary pilot |
+| 2026-11-08T09:09:39Z | f3fc1449bede7aabb5888b980d26ecf3912af59f | first commit, before binary pilot (rules + analysis code + tests) |
