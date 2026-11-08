@@ -107,19 +107,21 @@ This decision is made once, before any confirmatory download, and recorded in Am
 
 ## 5. Baseline reproduction tolerance
 
-Each baseline is trained with its published recipe on the pilot dataset BCI IV 2a (within-subject) and compared with **one** published figure, named here before any run:
+Each baseline is trained with **its own published BCI IV 2a recipe** (not with R1–R4) on the pilot dataset BCI IV 2a and compared with **one** published figure, fixed here. Reference figures were filled on 2026-11-08 from the sources below (they were [TO VERIFY] placeholders in the first commit; the tolerance and the handling rule are unchanged).
 
-| Baseline | Reference figure | Source |
-|---|---|---|
-| EEGNet-8,2 | within-subject 4-class accuracy, BCI IV 2a | Lawhern et al. 2018 — [TO VERIFY: table/figure, window, band-pass, session split] |
-| ShallowConvNet | within-subject 4-class accuracy, BCI IV 2a | Schirrmeister et al. 2017 — [TO VERIFY: table, protocol] |
-| MI-BMInet | within-subject accuracy, BCI IV 2a | Wang et al. 2024 — [TO VERIFY: table, protocol] |
+| Baseline | Reference figure | Protocol to replicate | Source |
+|---|---|---|---|
+| EEGNet-8,2 | **60.46 %** (± 20.20 across subject×session) 4-class accuracy, BNCI2014-001 | MOABB within-session evaluation, 5-fold CV inside each session, MOABB `EEGNet_8_2` pipeline | MOABB benchmark results page (Chevallier et al. 2024, arXiv 2404.15319), moabb.neurotechx.com/docs/paper_results.html |
+| ShallowConvNet | **72.47 %** (± 16.50) 4-class accuracy, BNCI2014-001 | same as above, MOABB `ShallowConvNet` pipeline | same |
+| MI-BMInet | **76.03 %** (κ 0.68) 4-class accuracy, BCI IV 2a | subject-specific, session 1 train → session 2 test; 0–3 s after cue; 0.5–100 Hz; 250 Hz; artefact trials removed; N_k = 32, N_f = 64; Adam lr 1e-3 constant, 500 epochs, batch 32; paper averages 25 repetitions, we use ≥ 3 seeds | Wang, Hersche, Magno, Benini 2024, IEEE Sensors J 24(6):8835, Tables II–III (arXiv 2203.14592v5) |
 
-**Tolerance:** ±3 percentage points, with the published protocol matched as closely as the pipeline allows; every remaining protocol difference listed in S7 beside the two numbers.
+Reported descriptively alongside, not used for the tolerance test: Lawhern et al. 2018 give no numeric within-subject SMR accuracy in text or table (Fig. 3 only, ≈ 68 %, 4-fold blockwise CV, 128 Hz, 4–40 Hz, 0.5–2.5 s); Schirrmeister et al. 2017 Table 2 give ShallowConvNet 73.7 % (0–38 Hz) and 71.9 % (4–38 Hz) **with cropped training**, trial-wise values only in a figure. The pilot value EEGNet/R2 within-subject (session split) = 67.1 % is a result of our pipeline and is reported alongside.
+
+**Tolerance:** ±3 percentage points, with the protocol of the reference figure matched as closely as the pipeline allows; every remaining protocol difference listed in S7 beside the two numbers. The tolerance was fixed before any baseline run.
 
 **If outside tolerance:** the implementation is checked once against the reference and the check is documented; if no error is found, the implementation is kept, the gap is reported in S7, and that architecture's home-recipe residual is flagged as resting on an imperfect home recipe. The tolerance is not widened after the fact.
 
-The pilot value EEGNet/R2 within-subject BCI IV 2a = 67.1 % (already in the registration) is a result of this pipeline, not the published figure, and is reported alongside.
+**Note on R3 (recorded 2026-11-08).** R3 (Adam 1e-2, ×0.1 at 40 % and 80 %, batch 16) is MI-BMInet's published **cross-subject** recipe (PhysioNet, 100 epochs, N_k = 16, N_f = 128), not its BCI IV 2a within-subject recipe, which is Adam 1e-3 constant, 500 epochs, batch 32. R3 is therefore MI-BMInet's home recipe for the cross-subject family F1 only; in the within-subject family F2 its published recipe is closer to R2. The home mapping in §2.1 is unchanged for F1; the home-recipe analysis is defined on F1 only, as registered.
 
 ## 6. Binary pilot (to be run only after this file is committed)
 
@@ -168,3 +170,4 @@ Allowed without counting as deviations only if confined to data loading / IO cod
 | Date | Commit | Change |
 |---|---|---|
 | 2026-11-08T09:09:39Z | f3fc1449bede7aabb5888b980d26ecf3912af59f | first commit, before binary pilot (rules + analysis code + tests) |
+| 2026-11-08 | (this commit) | §5: [TO VERIFY] reference figures filled from sources (MOABB benchmark for EEGNet / ShallowConvNet; Wang 2024 for MI-BMInet); note on R3 added. Tolerance and handling rule unchanged. Listed in S4. |
