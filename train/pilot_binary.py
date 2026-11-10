@@ -60,32 +60,13 @@ def load_deploy(root: str):
 
 
 # ----------------------------------------------------------------------------- models
-class ShallowWrap(nn.Module):
-    """braindecode ShallowFBCSPNet on (B, 1, C, T) input, logits out."""
-    def __init__(self, ch, t, nc):
-        super().__init__()
-        from braindecode.models import ShallowFBCSPNet
-        import inspect
-        sig = inspect.signature(ShallowFBCSPNet.__init__).parameters
-        kw = dict(n_chans=ch, n_outputs=nc, n_times=t, final_conv_length="auto")
-        if "add_log_softmax" in sig:                 # braindecode 0.8-0.9: logits only if False
-            kw["add_log_softmax"] = False
-        self.net = ShallowFBCSPNet(**kw)
-        for name in ("softmax", "logsoftmax"):       # defensive: strip any trailing log-softmax
-            if hasattr(self.net, name):
-                setattr(self.net, name, nn.Identity())
-
-    def forward(self, x):
-        y = self.net(x.squeeze(1))
-        return y.flatten(1) if y.dim() > 2 else y
-
-
 def build_model(arch, ch, t, nc, fs, deps):
     tp, bl, mb, v2 = deps
     if arch == "EEGNet":
         return bl.make_eegnet(ch, t, nc, fs=fs, drop=0.25)             # cross-subject dropout
     if arch == "ShallowConvNet":
-        return ShallowWrap(ch, t, nc)
+        from train.shallow import ShallowConvNet          # in-repo, equals braindecode ShallowFBCSPNet
+        return ShallowConvNet(ch, t, nc)
     if arch == "MI-BMInet":
         return mb.MIBMInet(ch, t, nc, fs=fs, nk=32, nf=64, p_dropout=0.2)   # registered N_k / N_f
     if arch == "CSOANet-v2":

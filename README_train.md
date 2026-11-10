@@ -6,7 +6,7 @@ CSOANet2026 `csoanet-v2-deploy` folder, which is a dependency (pass its path wit
 
 ```powershell
 # in recipe-x-arch, with the conda env that has torch + mne + braindecode + moabb
-pip install braindecode
+# braindecode is NOT needed: ShallowConvNet is implemented in train/shallow.py (tests/test_shallow.py checks it equals braindecode when braindecode is present)
 python -m train.pilot_binary --csoanet-root ..\csoanet2026_v2_deploy --synthetic --epochs 3 --max-subjects 10 --device cpu --out results\smoke   # smoke test
 python -m train.pilot_binary --csoanet-root ..\csoanet2026_v2_deploy --out results\pilot_binary                                                 # the pilot (GPU)
 python analysis\s8_interval_simulation.py results\pilot_binary\pilot_binary_s8.csv --out results\S8 --n-subjects 106 193                          # S8
@@ -17,7 +17,7 @@ First real run downloads PhysioNet-MI through MNE into `~/mne_data` (≈ 1.3 GB 
 
 Notes recorded on 2026-11-09:
 - MI-BMInet is built with `nk=32, nf=64` explicitly (the registered configuration); the dependency's default at 160 Hz is 16/128.
-- ShallowConvNet is braindecode's `ShallowFBCSPNet` (final_conv_length="auto", logits output), no weight constraint.
+- ShallowConvNet is `train/shallow.py`, layer-for-layer equal to braindecode 2.0 `ShallowFBCSPNet` (final_conv_length="auto"), no weight constraint. Implemented in-repo on 2026-11-09 after braindecode → torchaudio DLL failure on Windows; equivalence test passes on 3 input shapes.
 - R4 = R1 without augmentation, mixup and label smoothing (plain CE), same optimiser / schedule / early stopping.
 - Training failure flag = non-finite loss after the seed+100 retry, or un-augmented training balanced accuracy ≤ 55 % at the selected checkpoint.
 - Smoke test on synthetic data (3 epochs, CPU) ran 80/80 cells; CSOANet-v2 did not converge in 3 epochs under lr 1e-3 recipes and was correctly flagged — expected at 3 epochs, not a bug.
