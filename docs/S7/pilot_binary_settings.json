@@ -1,0 +1,30 @@
+{
+ "csoanet_root": "..\\csoanet2026_v2_deploy",
+ "out": "results\\pilot_binary",
+ "data_root": "~/mne_data",
+ "archs": [
+  "EEGNet",
+  "ShallowConvNet",
+  "MI-BMInet",
+  "CSOANet-v2"
+ ],
+ "recipes": [
+  "R1",
+  "R2",
+  "R3",
+  "R4"
+ ],
+ "seeds": [
+  0
+ ],
+ "folds": 5,
+ "val_frac": 0.1,
+ "epochs": 100,
+ "batch": 64,
+ "split_seed": 0,
+ "max_subjects": null,
+ "device": "cuda",
+ "no_amp": false,
+ "synthetic": false,
+ "fresh": false
+}

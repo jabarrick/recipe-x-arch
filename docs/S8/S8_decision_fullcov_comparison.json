@@ -1,0 +1,12 @@
+{
+  "P_B2_zero_interaction_D1to3_n106": 0.6084999999999999,
+  "add_third_dataset": true,
+  "P_A_zero_interaction_(false_positive_rate)": 0.14383333333333334,
+  "P_A_sign_zero_interaction": 0.0,
+  "P_A_equiv_only_zero_interaction": 0.14383333333333334,
+  "cov_model": "full",
+  "sesoi": 2.0,
+  "n_conf": 200,
+  "equiv_first": false,
+  "n_sims": 2000
+}
