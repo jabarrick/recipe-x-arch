@@ -1,0 +1,74 @@
+{
+ "EEGNet": {
+  "config": {
+   "id": 10,
+   "optimizer": "adam",
+   "lr": 0.0030609250511208245,
+   "schedule": "step",
+   "batch": 64,
+   "noise": true,
+   "shift": true,
+   "crop": false,
+   "chdrop": true,
+   "mixup": false,
+   "label_smoothing": 0.0,
+   "select": "val_loss_all"
+  },
+  "score": 86.4093591111669,
+  "runner_up": 85.85854623061955
+ },
+ "ShallowConvNet": {
+  "config": {
+   "id": 1,
+   "optimizer": "adam",
+   "lr": 0.0003396806351859303,
+   "schedule": "cosine",
+   "batch": 32,
+   "noise": false,
+   "shift": false,
+   "crop": false,
+   "chdrop": false,
+   "mixup": false,
+   "label_smoothing": 0.0,
+   "select": "val_acc_es"
+  },
+  "score": 88.6494884188061,
+  "runner_up": 88.5137467830017
+ },
+ "MI-BMInet": {
+  "config": {
+   "id": 13,
+   "optimizer": "adamw",
+   "lr": 0.002533723758260392,
+   "schedule": "step",
+   "batch": 32,
+   "noise": true,
+   "shift": false,
+   "crop": false,
+   "chdrop": false,
+   "mixup": false,
+   "label_smoothing": 0.0,
+   "select": "val_acc_es"
+  },
+  "score": 89.76837612202623,
+  "runner_up": 89.64048082355157
+ },
+ "CSOANet-v2": {
+  "config": {
+   "id": 10,
+   "optimizer": "adam",
+   "lr": 0.0030609250511208245,
+   "schedule": "step",
+   "batch": 64,
+   "noise": true,
+   "shift": true,
+   "crop": false,
+   "chdrop": true,
+   "mixup": false,
+   "label_smoothing": 0.0,
+   "select": "val_loss_all"
+  },
+  "score": 87.51176950599461,
+  "runner_up": 85.29047140794677
+ }
+}

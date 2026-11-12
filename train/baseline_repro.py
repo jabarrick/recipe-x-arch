@@ -42,7 +42,12 @@ import torch.nn.functional as F
 
 from train.pilot_binary import load_deploy, constrain
 
-REFERENCE = {"EEGNet": 60.46, "ShallowConvNet": 72.47, "MI-BMInet": 76.03}
+REFERENCE = {"EEGNet": 60.46, "ShallowConvNet": 72.47, "MI-BMInet": 76.03,
+             # diagnostic only (decision_rules §5 "checked once against the reference"): the study's
+             # ShallowConvNet plus the max-norm constraints of MOABB's Keras ShallowConvNet
+             # (2.0 per output filter on both convolutions, 0.5 per output unit on the classifier).
+             "ShallowConvNet+MOABB-maxnorm": 72.47}
+DIAGNOSTIC = {"ShallowConvNet+MOABB-maxnorm"}
 TOLERANCE = 3.0
 CLASSES = ["left_hand", "right_hand", "feet", "tongue"]
 
@@ -81,6 +86,14 @@ def scaler_epoch(X):
     sd = X.std(axis=1, keepdims=True)
     sd[sd == 0] = 1.0
     return ((X - mu) / sd).astype(np.float32)
+
+
+@torch.no_grad()
+def moabb_maxnorm(model):
+    """Keras max_norm(2.0, axis=(0,1,2)) on both convs = per output filter; Dense max_norm(0.5) = per output unit."""
+    for conv in (model.conv_time, model.conv_spat):
+        conv.weight.copy_(torch.renorm(conv.weight, 2, 0, 2.0))
+    model.final_layer.weight.copy_(torch.renorm(model.final_layer.weight, 2, 0, 0.5))
 
 
 # ------------------------------------------------------------------ training loops
@@ -151,7 +164,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--csoanet-root", required=True)
     ap.add_argument("--out", default="results/baseline_repro")
-    ap.add_argument("--archs", nargs="+", default=list(REFERENCE), choices=list(REFERENCE))
+    ap.add_argument("--archs", nargs="+", default=[a for a in REFERENCE if a not in DIAGNOSTIC], choices=list(REFERENCE))
     ap.add_argument("--seeds", nargs="+", type=int, default=[0, 1, 2])
     ap.add_argument("--epochs", type=int, default=None, help="override (smoke tests only)")
     ap.add_argument("--device", default="cuda")
@@ -168,7 +181,7 @@ def main():
     done = {(r["architecture"], r["seed"], r["subject"], r["session"], r["fold"]) for r in rows}
 
     for arch in a.archs:
-        if arch in ("EEGNet", "ShallowConvNet"):
+        if arch in ("EEGNet", "ShallowConvNet", "ShallowConvNet+MOABB-maxnorm"):
             fs = 128 if arch == "EEGNet" else 250
             X, y, g, sess = load(ds, None, None, 0.0, None, resample=fs)        # MOABB defaults: 8-32 Hz, 0-4 s
             X = scaler_epoch(X)
@@ -191,7 +204,8 @@ def main():
                             model = (bl.make_eegnet(ch, t, 4, fs=fs, drop=0.5) if arch == "EEGNet"
                                      else ShallowConvNet(ch, t, 4)).to(dev)
                             t0 = time.time()
-                            n_ep = fit_keras_like(model, lambda m: constrain(arch, m, deps), Xt[fit_i], Yt[fit_i],
+                            cfn = moabb_maxnorm if arch in DIAGNOSTIC else (lambda m: constrain(arch, m, deps))
+                            n_ep = fit_keras_like(model, cfn, Xt[fit_i], Yt[fit_i],
                                                   Xt[va_i], Yt[va_i], dev, epochs=a.epochs or 300)
                             acc = 100.0 * float((predict(model, Xt[te], dev) == y[te]).mean())
                             rows.append(dict(architecture=arch, seed=seed, subject=int(s), session=int(se), fold=fold,
