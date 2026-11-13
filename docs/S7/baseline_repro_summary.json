@@ -37,5 +37,16 @@
   "difference": -5.85,
   "within_tolerance": false,
   "protocol": "MOABB within-session 5-fold"
+ },
+ "ShallowConvNet+MOABB-maxnorm": {
+  "reproduced": 74.15,
+  "sd_across_units": 15.63,
+  "per_seed": [
+   74.15
+  ],
+  "reference": 72.47,
+  "difference": 1.68,
+  "within_tolerance": true,
+  "protocol": "MOABB within-session 5-fold"
  }
 }
