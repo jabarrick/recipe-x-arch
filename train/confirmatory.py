@@ -58,13 +58,28 @@ N_CALIB = 256
 
 
 # ------------------------------------------------------------------ data
+MOABB_VERSION = "1.7.2"                                          # registered
+
+
+def _check_moabb():
+    import moabb
+    if moabb.__version__ != MOABB_VERSION:
+        raise RuntimeError(f"MOABB {MOABB_VERSION} is registered; found {moabb.__version__}. "
+                           f"pip install moabb=={MOABB_VERSION}")
+    return moabb.__version__
+
+
 def load_unit(dataset_name, cache_dir, max_subjects=None):
     """Returns X (n, C, T) float32 CAR, y (0 left, 1 right), subject ids, session index (0/1), exclusions."""
+    Path(cache_dir).mkdir(parents=True, exist_ok=True)
     cache = Path(cache_dir) / f"cache_{dataset_name}_1-40Hz_250Hz.npz"
     if cache.exists():
         d = np.load(cache, allow_pickle=True)
+        if "moabb" not in d.files or str(d["moabb"]) != MOABB_VERSION:
+            raise RuntimeError(f"{cache} was not built with MOABB {MOABB_VERSION}; delete it and rebuild")
         X, y, g, sess, excl = d["X"], d["y"], d["g"], d["sess"], list(d["excl"])
     else:
+        version = _check_moabb()
         import mne
         from moabb.paradigms import LeftRightImagery
         import moabb.datasets as MD
@@ -77,20 +92,26 @@ def load_unit(dataset_name, cache_dir, max_subjects=None):
                 Xi, labels, meta = paradigm.get_data(dataset=ds, subjects=[s])
             except Exception as e:                              # cannot be loaded
                 excl.append(dict(subject=int(s), reason=f"load error: {type(e).__name__}: {e}"[:200]))
+                print(f"  {dataset_name} S{s:02d}: EXCLUDED, {excl[-1]['reason']}")
                 continue
             if len(labels) < 0.8 * NOMINAL_TRIALS:
-                excl.append(dict(subject=int(s), reason=f"{len(labels)} trials < 80 % of {NOMINAL_TRIALS}"))
+                excl.append(dict(subject=int(s), reason=f"{len(labels)} trials < 80 % of {NOMINAL_TRIALS} "
+                                                        f"(sessions {sorted(meta['session'].unique())})"))
+                print(f"  {dataset_name} S{s:02d}: EXCLUDED, {excl[-1]['reason']}")
                 continue
             Xi = Xi.astype(np.float32)
             Xi -= Xi.mean(axis=1, keepdims=True)                # common-average reference
             names = sorted(meta["session"].unique())
             Xs.append(Xi); ys.append((np.asarray(labels) == "right_hand").astype(np.int64))
             gs.append(np.full(len(labels), int(s))); ss.append(meta["session"].map({n: i for i, n in enumerate(names)}).to_numpy())
-            print(f"  {dataset_name} S{s:02d}: {len(labels)} trials, {Xi.shape[1]} ch x {Xi.shape[2]}")
+            print(f"  {dataset_name} S{s:02d}: {len(labels)} trials, {Xi.shape[1]} ch x {Xi.shape[2]}, "
+                  f"sessions {dict(meta['session'].value_counts().sort_index())}")
+        if not Xs:
+            raise RuntimeError(f"all {len(excl)} subjects of {dataset_name} were excluded; first reasons: {excl[:3]}")
         T = min(x.shape[2] for x in Xs)                          # guard against off-by-one sample counts
         X = np.concatenate([x[:, :, :T] for x in Xs]); y = np.concatenate(ys)
         g = np.concatenate(gs); sess = np.concatenate(ss)
-        np.savez(cache, X=X, y=y, g=g, sess=sess, excl=np.array(excl, dtype=object))
+        np.savez(cache, X=X, y=y, g=g, sess=sess, excl=np.array(excl, dtype=object), moabb=np.array(version))
     return X, y, g, sess, excl
 
 
