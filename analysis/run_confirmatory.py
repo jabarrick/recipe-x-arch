@@ -88,11 +88,21 @@ def analyse_family(df: pd.DataFrame, out_dir: str, tag: str, n_boot: int = 2000)
     if "training_failure" in df and df["training_failure"].any():
         avg_x = seed_average(df, "bacc_f32", drop_failures=True); yx, subj_x, _ = to_cube(avg_x)
         frac_incomplete = float(np.isnan(yx).any(axis=(1, 2)).mean())
-        home_x = hr.run(yx, avg_long=avg_x, n_boot=n_boot)
         path = "model" if frac_incomplete > 0.10 else "subject_drop"
+        # decision_rules.md 2.4: the model path does not use the subject-drop tables, so they are
+        # not built when it applies (with every subject incomplete they would be empty; S4 row 11).
+        if path == "model":
+            h_x = hr.home_advantage_model(avg_x)[0]
+        else:
+            h_x = hr.run(yx, avg_long=avg_x, n_boot=n_boot)["h_cellmeans"]
+        missing = {f"{ARCHS[i]}/{RECIPES[j]}": int(np.isnan(yx[:, i, j]).sum())
+                   for i in range(len(ARCHS)) for j in range(len(RECIPES)) if np.isnan(yx[:, i, j]).any()}
+        try:
+            h3_x = h3.run(yx)["outcome"]
+        except Exception as e:  # reported, not hidden
+            h3_x = f"not computable: {e}"
         V["4.6_failures_excluded"] = dict(frac_subjects_incomplete=frac_incomplete, path_used=path,
-                                          h=home_x["h_model"] if path == "model" else home_x["h_cellmeans"],
-                                          h3_outcome=h3.run(yx)["outcome"])
+                                          missing_cells=missing, h=h_x, h3_outcome=h3_x)
 
     # ---- random slopes / bootstrap --------------------------------------
     try:

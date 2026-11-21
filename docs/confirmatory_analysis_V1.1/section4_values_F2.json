@@ -1,0 +1,244 @@
+{
+  "4.1": {
+    "N": 54,
+    "N_by_dataset": {
+      "Lee2019_MI": 54
+    },
+    "N_runs": 2592,
+    "n_fail": 124,
+    "mean": 61.967592592592595,
+    "min": 57.7283950617284,
+    "max": 66.1604938271605,
+    "tr_min": 40.79365079365079,
+    "tr_max": 100.0,
+    "va_min": 21.875,
+    "va_max": 100.0
+  },
+  "4.2": {
+    "H1": {
+      "chi2": 7.551273263499752,
+      "df": 3,
+      "p": 0.0562555554034617,
+      "p_holm": 0.1125111108069234,
+      "supported": false
+    },
+    "H2": {
+      "chi2": 20.200183105038377,
+      "df": 9,
+      "p": 0.016716400595678825,
+      "p_holm": 0.050149201787036475,
+      "supported": false
+    },
+    "variance_shares": {
+      "A": 0.03999491218422991,
+      "R": 0.002729639226490436,
+      "AR": 0.007178114142445672,
+      "subject": 0.6468912819406346,
+      "residual": 0.30320605250619936
+    },
+    "recipe_range": {
+      "EEGNet": 2.0123456790123413,
+      "ShallowConvNet": 3.7962962962962976,
+      "MI-BMInet": 5.191358024691354,
+      "CSOANet-v2": 0.8641975308642031
+    },
+    "converged": true
+  },
+  "4.3": {
+    "mean": 0.7839506172839513,
+    "ci_lo": -3.0487474593703086,
+    "ci_hi": 4.616648693938211,
+    "t": 0.41026080836424306,
+    "df": 53,
+    "p": 0.683268411215654,
+    "pct_positive": 57.407407407407405,
+    "delta_EEGNet": 0.8950617283950623,
+    "delta_v2": 0.11111111111111072,
+    "p_holm": 0.683268411215654,
+    "supported": false
+  },
+  "4.3b": {
+    "h_cellmeans": {
+      "EEGNet": -0.9691358024691326,
+      "MI-BMInet": -1.422839506172842,
+      "CSOANet-v2": 0.1712962962962976
+    },
+    "h_model": {
+      "EEGNet": -0.9691358024691352,
+      "MI-BMInet": -1.4228395061728396,
+      "CSOANet-v2": 0.17129629629629595
+    },
+    "tests": [
+      {
+        "architecture": "CSOANet-v2",
+        "n": 54,
+        "h_mean": 0.17129629629629892,
+        "ci_lo": -0.8162975808871133,
+        "ci_hi": 1.1588901734797112,
+        "t": 0.3478928618805894,
+        "p_raw": 0.7292985998749901,
+        "p_holm": 0.7292985998749901,
+        "significant": false,
+        "tost_ci90_lo": -0.6530089491938199,
+        "tost_ci90_hi": 0.9956015417864176,
+        "tost_equivalent": true
+      },
+      {
+        "architecture": "EEGNet",
+        "n": 54,
+        "h_mean": -0.9691358024691331,
+        "ci_lo": -2.09927774048458,
+        "ci_hi": 0.16100613554631382,
+        "t": -1.7199965679842455,
+        "p_raw": 0.09126800967786981,
+        "p_holm": 0.18253601935573963,
+        "significant": false,
+        "tost_ci90_lo": NaN,
+        "tost_ci90_hi": NaN,
+        "tost_equivalent": null
+      },
+      {
+        "architecture": "MI-BMInet",
+        "n": 54,
+        "h_mean": -1.4228395061728396,
+        "ci_lo": -2.5217668932258595,
+        "ci_hi": -0.32391211911981976,
+        "t": -2.596945599053068,
+        "p_raw": 0.01214704810725216,
+        "p_holm": 0.036441144321756484,
+        "significant": true,
+        "tost_ci90_lo": NaN,
+        "tost_ci90_hi": NaN,
+        "tost_equivalent": null
+      }
+    ],
+    "ranges": [
+      {
+        "architecture": "EEGNet",
+        "residual_range": 2.896604938271601,
+        "rr_lo": 2.143402777777778,
+        "rr_hi": 4.423070987654301,
+        "raw_range": 2.0123456790123413,
+        "raw_lo": 1.067746913580251,
+        "raw_hi": 4.981481481481447,
+        "share_smallest_residual_range": 0.149
+      },
+      {
+        "architecture": "ShallowConvNet",
+        "residual_range": 2.774691358024704,
+        "rr_lo": 1.4829475308641988,
+        "rr_hi": 4.76431327160494,
+        "raw_range": 3.796296296296269,
+        "raw_lo": 2.3578703703703563,
+        "raw_hi": 5.759413580246911,
+        "share_smallest_residual_range": 0.264
+      },
+      {
+        "architecture": "MI-BMInet",
+        "residual_range": 3.412037037037045,
+        "rr_lo": 2.1527391975308925,
+        "rr_hi": 5.128163580246915,
+        "raw_range": 5.191358024691361,
+        "raw_lo": 3.8148148148148304,
+        "raw_hi": 7.037345679012359,
+        "share_smallest_residual_range": 0.0685
+      },
+      {
+        "architecture": "CSOANet-v2",
+        "residual_range": 2.5324074074074048,
+        "rr_lo": 1.2206018518518704,
+        "rr_hi": 4.140470679012371,
+        "raw_range": 0.8641975308642031,
+        "raw_lo": 0.46898148148147084,
+        "raw_hi": 3.246913580246926,
+        "share_smallest_residual_range": 0.5185
+      }
+    ],
+    "mechanism": "iii",
+    "h_noR4": {
+      "EEGNet": -1.1810699588477362,
+      "MI-BMInet": -1.3297325102880677,
+      "CSOANet-v2": 0.10956790123456983
+    },
+    "mechanism_noR4": "iii",
+    "n_dropped": 0
+  },
+  "4.4": {
+    "H3_supported": false,
+    "outcome": "intermediate",
+    "n_definitive": 9,
+    "n_intervals": 24,
+    "sign_reversals": 0,
+    "equiv_better_changes": 0,
+    "inconclusive_definitive_changes": 17,
+    "median_halfwidth": 4.600136437672644
+  },
+  "4.6_int8": {
+    "same_decisions": true,
+    "H1": {
+      "chi2": 8.568447168321654,
+      "df": 3,
+      "p": 0.03561450030519662,
+      "p_holm": 0.09661520642509867,
+      "supported": false
+    },
+    "H2": {
+      "chi2": 18.2664538282188,
+      "df": 9,
+      "p": 0.032205068808366225,
+      "p_holm": 0.09661520642509867,
+      "supported": false
+    },
+    "H2b": {
+      "mean": 0.9506172839506191,
+      "ci_lo": -2.8501315160731258,
+      "ci_hi": 4.751366083974364,
+      "t": 0.5016634644078534,
+      "df": 53,
+      "p": 0.6179818870106369,
+      "pct_positive": 57.407407407407405,
+      "delta_EEGNet": 1.0740740740740746,
+      "delta_v2": 0.12345679012345556,
+      "p_holm": 0.6179818870106369,
+      "supported": false
+    },
+    "h3_outcome": "intermediate",
+    "category_changes_f32_to_int8": 1,
+    "deployment_module": "D2"
+  },
+  "4.6_failures_excluded": {
+    "frac_subjects_incomplete": 0.037037037037037035,
+    "path_used": "subject_drop",
+    "missing_cells": {
+      "EEGNet/R1": 1,
+      "MI-BMInet/R4": 1
+    },
+    "h": {
+      "EEGNet": -1.1765410260889837,
+      "MI-BMInet": -1.1594929245283012,
+      "CSOANet-v2": -0.2976830013976297
+    },
+    "h3_outcome": "B2"
+  },
+  "4.6_random_slopes": {
+    "error": "Eigenvalues did not converge"
+  },
+  "4.6_bootstrap": {
+    "share_R": {
+      "lo": 0.017700594210734555,
+      "hi": 0.14854483337772295
+    },
+    "share_AR": {
+      "lo": 0.07857364791503381,
+      "hi": 0.3344387402049207
+    },
+    "mean_recipe_range": {
+      "lo": 2.4966049382716,
+      "hi": 4.595910493827159
+    },
+    "h2b_mean": {
+      "lo": -2.972376543209875,
+      "hi": 4.310185185185184
+    }
+  }
+}

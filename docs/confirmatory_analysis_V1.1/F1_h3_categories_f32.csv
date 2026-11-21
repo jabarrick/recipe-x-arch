@@ -1,0 +1,7 @@
+pair,R1,R2,R3,R4
+EEGNet - CSOANet-v2,I,A,A,A
+EEGNet - MI-BMInet,B,E,E,E
+EEGNet - ShallowConvNet,I,A,A,A
+MI-BMInet - CSOANet-v2,A,A,A,A
+ShallowConvNet - CSOANet-v2,I,I,A,A
+ShallowConvNet - MI-BMInet,B,B,B,B
