@@ -1,0 +1,1035 @@
+{
+  "F1": {
+    "table5": [
+      {
+        "architecture": "EEGNet",
+        "recipe_range": 6.2070230607966295,
+        "range_lo": 5.074240041928729,
+        "range_hi": 7.386818658280953,
+        "best": "R4",
+        "worst": "R1",
+        "train_acc": 80.68809854260566,
+        "val_acc": 75.75335991314765,
+        "n_runs": 120,
+        "n_fail": 0,
+        "n_retried": 0,
+        "fail_by_recipe": {
+          "R1": 0,
+          "R2": 0,
+          "R3": 0,
+          "R4": 0
+        }
+      },
+      {
+        "architecture": "ShallowConvNet",
+        "recipe_range": 4.538522012578625,
+        "range_lo": 3.8327764675052345,
+        "range_hi": 5.237735849056585,
+        "best": "R4",
+        "worst": "R1",
+        "train_acc": 84.17033737666857,
+        "val_acc": 72.44697607816713,
+        "n_runs": 120,
+        "n_fail": 30,
+        "n_retried": 30,
+        "fail_by_recipe": {
+          "R1": 0,
+          "R2": 0,
+          "R3": 30,
+          "R4": 0
+        }
+      },
+      {
+        "architecture": "MI-BMInet",
+        "recipe_range": 3.6559224318658607,
+        "range_lo": 2.837866876310256,
+        "range_hi": 4.615349842767299,
+        "best": "R3",
+        "worst": "R1",
+        "train_acc": 84.53203549309026,
+        "val_acc": 76.1329926624738,
+        "n_runs": 120,
+        "n_fail": 0,
+        "n_retried": 0,
+        "fail_by_recipe": {
+          "R1": 0,
+          "R2": 0,
+          "R3": 0,
+          "R4": 0
+        }
+      },
+      {
+        "architecture": "CSOANet-v2",
+        "recipe_range": 11.649371069182415,
+        "range_lo": 9.719437893081754,
+        "range_hi": 13.508372641509421,
+        "best": "R2",
+        "worst": "R3",
+        "train_acc": 72.31695479395945,
+        "val_acc": 67.43945604971547,
+        "n_runs": 120,
+        "n_fail": 11,
+        "n_retried": 0,
+        "fail_by_recipe": {
+          "R1": 0,
+          "R2": 0,
+          "R3": 11,
+          "R4": 0
+        }
+      }
+    ],
+    "low_train_cells": {},
+    "seed_sd": {
+      "median": 2.4414438654509674,
+      "mean": 3.090550229697121
+    },
+    "int8": {
+      "agreement_overall": 95.54166666666667,
+      "agreement": {
+        "EEGNet": 96.1,
+        "ShallowConvNet": 94.05,
+        "MI-BMInet": 97.78,
+        "CSOANet-v2": 94.24
+      },
+      "f32_minus_int8": {
+        "EEGNet": 0.86,
+        "ShallowConvNet": 0.94,
+        "MI-BMInet": 0.06,
+        "CSOANet-v2": 0.49
+      },
+      "coverage_share": {
+        "EEGNet": 0.556,
+        "ShallowConvNet": 1.0,
+        "MI-BMInet": 1.0,
+        "CSOANet-v2": 1.0
+      },
+      "quantized_of_compute": {
+        "EEGNet": "5/9",
+        "ShallowConvNet": "6/6",
+        "MI-BMInet": "7/7",
+        "CSOANet-v2": "27/27"
+      },
+      "float_ops": {
+        "EEGNet": [
+          "AveragePool",
+          "Elu"
+        ],
+        "ShallowConvNet": [],
+        "MI-BMInet": [],
+        "CSOANet-v2": []
+      }
+    },
+    "excluded_subjects": 0,
+    "fold_fixed": {
+      "H1": {
+        "chi2": 160.4522699633053,
+        "df": 3,
+        "p": 1.4639528729940406e-34
+      },
+      "H2": {
+        "chi2": 414.67175363632487,
+        "df": 9,
+        "p": 1.012154372329783e-83
+      }
+    },
+    "seed_random": {
+      "H1": {
+        "chi2": 339.7414612056309,
+        "df": 3,
+        "p": 2.482367697239461e-73
+      },
+      "H2": {
+        "chi2": 829.42545633603,
+        "df": 9,
+        "p": 9.833179702244392e-173
+      },
+      "seed_var": 117.64181662553631,
+      "converged": true
+    },
+    "art": {
+      "H1": {
+        "chi2": 195.88576838668814,
+        "df": 3,
+        "p": 3.2665379235981595e-42
+      },
+      "H2": {
+        "chi2": 435.0192115880709,
+        "df": 9,
+        "p": 4.5637414506957385e-88
+      }
+    },
+    "failure_dependence": [
+      {
+        "pair": "EEGNet - MI-BMInet",
+        "recipes": "R1-R2",
+        "change": "B->E",
+        "involves_failure_cells": []
+      },
+      {
+        "pair": "EEGNet - MI-BMInet",
+        "recipes": "R1-R3",
+        "change": "B->E",
+        "involves_failure_cells": []
+      },
+      {
+        "pair": "EEGNet - MI-BMInet",
+        "recipes": "R1-R4",
+        "change": "B->E",
+        "involves_failure_cells": []
+      }
+    ],
+    "exploratory_b": {
+      "cells": [
+        {
+          "architecture": "EEGNet",
+          "recipe": "R1",
+          "test": 70.62,
+          "tr": 74.84,
+          "va": 71.31,
+          "gain_vs_R4": -6.21,
+          "gap_R4": 5.1310623443040555
+        },
+        {
+          "architecture": "EEGNet",
+          "recipe": "R2",
+          "test": 75.91,
+          "tr": 82.71,
+          "va": 76.85,
+          "gain_vs_R4": -0.92,
+          "gap_R4": 5.1310623443040555
+        },
+        {
+          "architecture": "EEGNet",
+          "recipe": "R3",
+          "test": 76.57,
+          "tr": 82.22,
+          "va": 77.0,
+          "gain_vs_R4": -0.25,
+          "gap_R4": 5.1310623443040555
+        },
+        {
+          "architecture": "EEGNet",
+          "recipe": "R4",
+          "test": 76.82,
+          "tr": 82.98,
+          "va": 77.85,
+          "gain_vs_R4": 0.0,
+          "gap_R4": 5.1310623443040555
+        },
+        {
+          "architecture": "ShallowConvNet",
+          "recipe": "R1",
+          "test": 69.83,
+          "tr": 83.1,
+          "va": 70.98,
+          "gain_vs_R4": -4.54,
+          "gap_R4": 18.132385649335532
+        },
+        {
+          "architecture": "ShallowConvNet",
+          "recipe": "R2",
+          "test": 71.86,
+          "tr": 83.22,
+          "va": 71.74,
+          "gain_vs_R4": -2.51,
+          "gap_R4": 18.132385649335532
+        },
+        {
+          "architecture": "ShallowConvNet",
+          "recipe": "R3",
+          "test": 71.59,
+          "tr": 77.4,
+          "va": 72.25,
+          "gain_vs_R4": -2.77,
+          "gap_R4": 18.132385649335532
+        },
+        {
+          "architecture": "ShallowConvNet",
+          "recipe": "R4",
+          "test": 74.37,
+          "tr": 92.96,
+          "va": 74.82,
+          "gain_vs_R4": 0.0,
+          "gap_R4": 18.132385649335532
+        },
+        {
+          "architecture": "MI-BMInet",
+          "recipe": "R1",
+          "test": 73.24,
+          "tr": 81.41,
+          "va": 73.92,
+          "gain_vs_R4": -3.34,
+          "gap_R4": 9.769224860060802
+        },
+        {
+          "architecture": "MI-BMInet",
+          "recipe": "R2",
+          "test": 76.09,
+          "tr": 84.92,
+          "va": 76.2,
+          "gain_vs_R4": -0.49,
+          "gap_R4": 9.769224860060802
+        },
+        {
+          "architecture": "MI-BMInet",
+          "recipe": "R3",
+          "test": 76.89,
+          "tr": 85.26,
+          "va": 77.64,
+          "gain_vs_R4": 0.32,
+          "gap_R4": 9.769224860060802
+        },
+        {
+          "architecture": "MI-BMInet",
+          "recipe": "R4",
+          "test": 76.58,
+          "tr": 86.54,
+          "va": 76.77,
+          "gain_vs_R4": 0.0,
+          "gap_R4": 9.769224860060802
+        },
+        {
+          "architecture": "CSOANet-v2",
+          "recipe": "R1",
+          "test": 69.12,
+          "tr": 73.61,
+          "va": 69.6,
+          "gain_vs_R4": -1.0,
+          "gap_R4": 6.172820181547294
+        },
+        {
+          "architecture": "CSOANet-v2",
+          "recipe": "R2",
+          "test": 70.92,
+          "tr": 78.12,
+          "va": 71.17,
+          "gain_vs_R4": 0.79,
+          "gap_R4": 6.172820181547294
+        },
+        {
+          "architecture": "CSOANet-v2",
+          "recipe": "R3",
+          "test": 59.27,
+          "tr": 60.82,
+          "va": 58.45,
+          "gain_vs_R4": -10.86,
+          "gap_R4": 6.172820181547294
+        },
+        {
+          "architecture": "CSOANet-v2",
+          "recipe": "R4",
+          "test": 70.13,
+          "tr": 76.71,
+          "va": 70.54,
+          "gain_vs_R4": 0.0,
+          "gap_R4": 6.172820181547294
+        }
+      ],
+      "spearman": -0.15114173098063566,
+      "p": 0.6391482744329768,
+      "n": 12
+    },
+    "dataset_effect": {
+      "term": "C(dataset)[T.Lee2019_MI]",
+      "coef": 4.920305822649958,
+      "lo": 0.7673582718280363,
+      "hi": 9.073253373471879
+    },
+    "dataset_interactions": {
+      "dataset_x_arch": {
+        "chi2": 108.36761811663746,
+        "df": 3,
+        "p": 2.463849036196001e-23
+      },
+      "dataset_x_recipe": {
+        "chi2": 49.03582910137993,
+        "df": 3,
+        "p": 1.281746745723985e-10
+      },
+      "three_way": {
+        "chi2": 62.67407886393994,
+        "df": 9,
+        "p": 4.0801251999649196e-10
+      }
+    },
+    "separate": {
+      "Cho2017": {
+        "N": 52,
+        "H1_p": 5.654900883554971e-10,
+        "H2_chi2": 121.54384392461179,
+        "H2_p": 6.452381934301448e-22,
+        "H2_supported": true,
+        "H2b_mean": 3.0288461538461537,
+        "H2b_p_holm": 6.382423395258124e-05,
+        "H3_outcome": "A'",
+        "n_definitive": 17,
+        "sign_reversals": 0,
+        "equiv_better": 2
+      },
+      "Lee2019_MI": {
+        "N": 54,
+        "H1_p": 3.0274179635550827e-30,
+        "H2_chi2": 361.1922404627512,
+        "H2_p": 2.566777292928316e-72,
+        "H2_supported": true,
+        "H2b_mean": 3.94753086419753,
+        "H2b_p_holm": 0.00022563232546141536,
+        "H3_outcome": "B1",
+        "n_definitive": 18,
+        "sign_reversals": 0,
+        "equiv_better": 0
+      }
+    },
+    "h4": {
+      "tau_ci": [
+        0.3333333333333334,
+        1.0
+      ],
+      "gain_T": {
+        "EEGNet": 5.737,
+        "ShallowConvNet": 3.528,
+        "MI-BMInet": 3.372,
+        "CSOANet-v2": 0.99
+      },
+      "gain_Tprime": {
+        "EEGNet": 6.491,
+        "ShallowConvNet": 4.992,
+        "MI-BMInet": 4.288,
+        "CSOANet-v2": 1.417
+      },
+      "selected": {
+        "F1a/EEGNet": {
+          "config_id": 13,
+          "search_score": 86.6875,
+          "test_mean": 80.29629629629629,
+          "config": {
+            "id": 13,
+            "optimizer": "adamw",
+            "lr": 0.002533723758260392,
+            "schedule": "step",
+            "batch": 32,
+            "noise": true,
+            "shift": false,
+            "crop": false,
+            "chdrop": false,
+            "mixup": false,
+            "label_smoothing": 0.0,
+            "select": "val_acc_es"
+          }
+        },
+        "F1a/ShallowConvNet": {
+          "config_id": 10,
+          "search_score": 83.25,
+          "test_mean": 76.25,
+          "config": {
+            "id": 10,
+            "optimizer": "adam",
+            "lr": 0.0030609250511208245,
+            "schedule": "step",
+            "batch": 64,
+            "noise": true,
+            "shift": true,
+            "crop": false,
+            "chdrop": true,
+            "mixup": false,
+            "label_smoothing": 0.0,
+            "select": "val_loss_all"
+          }
+        },
+        "F1a/MI-BMInet": {
+          "config_id": 19,
+          "search_score": 85.25,
+          "test_mean": 80.10185185185185,
+          "config": {
+            "id": 19,
+            "optimizer": "adamw",
+            "lr": 0.009877062041812622,
+            "schedule": "step",
+            "batch": 64,
+            "noise": true,
+            "shift": true,
+            "crop": false,
+            "chdrop": true,
+            "mixup": false,
+            "label_smoothing": 0.1,
+            "select": "val_acc_es"
+          }
+        },
+        "F1a/CSOANet-v2": {
+          "config_id": 20,
+          "search_score": 72.5,
+          "test_mean": 71.54629629629629,
+          "config": {
+            "id": 20,
+            "optimizer": "adam",
+            "lr": 0.00035287007868300713,
+            "schedule": "constant",
+            "batch": 64,
+            "noise": false,
+            "shift": false,
+            "crop": false,
+            "chdrop": false,
+            "mixup": true,
+            "label_smoothing": 0.0,
+            "select": "val_acc_es"
+          }
+        },
+        "F1b/EEGNet": {
+          "config_id": 19,
+          "search_score": 65.17857142857143,
+          "test_mean": 72.26121794871794,
+          "config": {
+            "id": 19,
+            "optimizer": "adamw",
+            "lr": 0.009877062041812622,
+            "schedule": "step",
+            "batch": 64,
+            "noise": true,
+            "shift": true,
+            "crop": false,
+            "chdrop": true,
+            "mixup": false,
+            "label_smoothing": 0.1,
+            "select": "val_acc_es"
+          }
+        },
+        "F1b/ShallowConvNet": {
+          "config_id": 19,
+          "search_score": 64.22619047619048,
+          "test_mean": 70.34722222222223,
+          "config": {
+            "id": 19,
+            "optimizer": "adamw",
+            "lr": 0.009877062041812622,
+            "schedule": "step",
+            "batch": 64,
+            "noise": true,
+            "shift": true,
+            "crop": false,
+            "chdrop": true,
+            "mixup": false,
+            "label_smoothing": 0.1,
+            "select": "val_acc_es"
+          }
+        },
+        "F1b/MI-BMInet": {
+          "config_id": 19,
+          "search_score": 63.69047619047618,
+          "test_mean": 72.98611111111111,
+          "config": {
+            "id": 19,
+            "optimizer": "adamw",
+            "lr": 0.009877062041812622,
+            "schedule": "step",
+            "batch": 64,
+            "noise": true,
+            "shift": true,
+            "crop": false,
+            "chdrop": true,
+            "mixup": false,
+            "label_smoothing": 0.1,
+            "select": "val_acc_es"
+          }
+        },
+        "F1b/CSOANet-v2": {
+          "config_id": 4,
+          "search_score": 58.21428571428571,
+          "test_mean": 68.62713675213675,
+          "config": {
+            "id": 4,
+            "optimizer": "adamw",
+            "lr": 0.0008224245656113898,
+            "schedule": "step",
+            "batch": 64,
+            "noise": true,
+            "shift": true,
+            "crop": false,
+            "chdrop": false,
+            "mixup": true,
+            "label_smoothing": 0.0,
+            "select": "val_acc_es"
+          }
+        }
+      },
+      "shrinkage": {
+        "F1a/EEGNet": 6.3912037037037095,
+        "F1a/ShallowConvNet": 7.0,
+        "F1a/MI-BMInet": 5.148148148148152,
+        "F1a/CSOANet-v2": 0.9537037037037095,
+        "F1b/EEGNet": -7.082646520146511,
+        "F1b/ShallowConvNet": -6.121031746031747,
+        "F1b/MI-BMInet": -9.295634920634932,
+        "F1b/CSOANet-v2": -10.412851037851041
+      }
+    },
+    "exploratory_noR3": {
+      "CSOANet-v2": {
+        "h": 1.3225017470300493,
+        "lo": 0.913895895140647,
+        "hi": 1.7311075989194515,
+        "p": 4.078467169542179e-09,
+        "tost_lo": 0.9805235840589499,
+        "tost_hi": 1.6644799100011485,
+        "equivalent": true
+      },
+      "EEGNet": {
+        "h": 0.7209337875611457,
+        "lo": 0.3603484049927717,
+        "hi": 1.0815191701295197,
+        "p": 0.0001345769048737008,
+        "tost_lo": 0.4191458269757436,
+        "tost_hi": 1.0227217481465476,
+        "equivalent": true
+      },
+      "residuals": {
+        "R1": {
+          "EEGNet": -1.578,
+          "ShallowConvNet": 0.064,
+          "MI-BMInet": 0.192,
+          "CSOANet-v2": 1.323
+        },
+        "R2": {
+          "EEGNet": 0.721,
+          "ShallowConvNet": -0.894,
+          "MI-BMInet": 0.049,
+          "CSOANet-v2": 0.125
+        },
+        "R4": {
+          "EEGNet": 0.857,
+          "ShallowConvNet": 0.83,
+          "MI-BMInet": -0.24,
+          "CSOANet-v2": -1.447
+        }
+      },
+      "residuals_4x4": {
+        "R1": {
+          "EEGNet": -2.577,
+          "ShallowConvNet": -0.299,
+          "MI-BMInet": -0.675,
+          "CSOANet-v2": 3.551
+        },
+        "R2": {
+          "EEGNet": -0.278,
+          "ShallowConvNet": -1.257,
+          "MI-BMInet": -0.818,
+          "CSOANet-v2": 2.353
+        },
+        "R3": {
+          "EEGNet": 2.996,
+          "ShallowConvNet": 1.088,
+          "MI-BMInet": 2.601,
+          "CSOANet-v2": -6.685
+        },
+        "R4": {
+          "EEGNet": -0.142,
+          "ShallowConvNet": 0.468,
+          "MI-BMInet": -1.107,
+          "CSOANet-v2": 0.781
+        }
+      }
+    }
+  },
+  "F2": {
+    "table5": [
+      {
+        "architecture": "EEGNet",
+        "recipe_range": 2.0123456790123413,
+        "range_lo": 1.0617283950617484,
+        "range_hi": 5.395216049382696,
+        "best": "R3",
+        "worst": "R1",
+        "train_acc": 85.18338998810674,
+        "val_acc": 72.76383617240099,
+        "n_runs": 648,
+        "n_fail": 50,
+        "n_retried": 0,
+        "fail_by_recipe": {
+          "R1": 42,
+          "R2": 6,
+          "R3": 0,
+          "R4": 2
+        }
+      },
+      {
+        "architecture": "ShallowConvNet",
+        "recipe_range": 3.796296296296269,
+        "range_lo": 2.4010802469135797,
+        "range_hi": 5.70432098765433,
+        "best": "R2",
+        "worst": "R3",
+        "train_acc": 93.03847256469552,
+        "val_acc": 72.184301145528,
+        "n_runs": 648,
+        "n_fail": 11,
+        "n_retried": 0,
+        "fail_by_recipe": {
+          "R1": 7,
+          "R2": 0,
+          "R3": 3,
+          "R4": 1
+        }
+      },
+      {
+        "architecture": "MI-BMInet",
+        "recipe_range": 5.191358024691361,
+        "range_lo": 3.8146604938271347,
+        "range_hi": 7.12962962962964,
+        "best": "R2",
+        "worst": "R3",
+        "train_acc": 87.80978917548603,
+        "val_acc": 76.41730247633025,
+        "n_runs": 648,
+        "n_fail": 55,
+        "n_retried": 0,
+        "fail_by_recipe": {
+          "R1": 16,
+          "R2": 10,
+          "R3": 21,
+          "R4": 8
+        }
+      },
+      {
+        "architecture": "CSOANet-v2",
+        "recipe_range": 0.8641975308642031,
+        "range_lo": 0.4689814814814858,
+        "range_hi": 3.166820987654339,
+        "best": "R3",
+        "worst": "R1",
+        "train_acc": 93.94026886716814,
+        "val_acc": 82.37248690952394,
+        "n_runs": 648,
+        "n_fail": 8,
+        "n_retried": 0,
+        "fail_by_recipe": {
+          "R1": 1,
+          "R2": 4,
+          "R3": 2,
+          "R4": 1
+        }
+      }
+    ],
+    "low_train_cells": {},
+    "seed_sd": {
+      "median": 3.7859388972001837,
+      "mean": 4.7285261825366955
+    },
+    "int8": {
+      "agreement_overall": 98.10609567901234,
+      "agreement": {
+        "EEGNet": 98.91,
+        "ShallowConvNet": 96.7,
+        "MI-BMInet": 99.05,
+        "CSOANet-v2": 97.76
+      },
+      "f32_minus_int8": {
+        "EEGNet": 0.09,
+        "ShallowConvNet": 0.19,
+        "MI-BMInet": -0.0,
+        "CSOANet-v2": 0.06
+      },
+      "coverage_share": {
+        "EEGNet": 0.556,
+        "ShallowConvNet": 1.0,
+        "MI-BMInet": 1.0,
+        "CSOANet-v2": 1.0
+      },
+      "quantized_of_compute": {
+        "EEGNet": "5/9",
+        "ShallowConvNet": "6/6",
+        "MI-BMInet": "7/7",
+        "CSOANet-v2": "27/27"
+      },
+      "float_ops": {
+        "EEGNet": [
+          "AveragePool",
+          "Elu"
+        ],
+        "ShallowConvNet": [],
+        "MI-BMInet": [],
+        "CSOANet-v2": []
+      }
+    },
+    "excluded_subjects": 0,
+    "fold_fixed": "not applicable (within-subject)",
+    "seed_random": {
+      "H1": {
+        "chi2": 15.773889439740742,
+        "df": 3,
+        "p": 0.001261671126127109
+      },
+      "H2": {
+        "chi2": 41.97588318550697,
+        "df": 9,
+        "p": 3.320078864165363e-06
+      },
+      "seed_var": 111.4059714045656,
+      "converged": true
+    },
+    "art": {
+      "H1": {
+        "chi2": 9.346216709727742,
+        "df": 3,
+        "p": 0.0250249079900756
+      },
+      "H2": {
+        "chi2": 24.90290539615671,
+        "df": 9,
+        "p": 0.0030804837901989117
+      }
+    },
+    "failure_dependence": [],
+    "exploratory_b": {
+      "cells": [
+        {
+          "architecture": "EEGNet",
+          "recipe": "R1",
+          "test": 57.73,
+          "tr": 67.42,
+          "va": 73.37,
+          "gain_vs_R4": -0.22,
+          "gap_R4": 17.200933660298844
+        },
+        {
+          "architecture": "EEGNet",
+          "recipe": "R2",
+          "test": 58.62,
+          "tr": 88.16,
+          "va": 69.17,
+          "gain_vs_R4": 0.67,
+          "gap_R4": 17.200933660298844
+        },
+        {
+          "architecture": "EEGNet",
+          "recipe": "R3",
+          "test": 59.74,
+          "tr": 93.45,
+          "va": 74.02,
+          "gain_vs_R4": 1.79,
+          "gap_R4": 17.200933660298844
+        },
+        {
+          "architecture": "EEGNet",
+          "recipe": "R4",
+          "test": 57.95,
+          "tr": 91.7,
+          "va": 74.49,
+          "gain_vs_R4": 0.0,
+          "gap_R4": 17.200933660298844
+        },
+        {
+          "architecture": "ShallowConvNet",
+          "recipe": "R1",
+          "test": 61.27,
+          "tr": 91.27,
+          "va": 78.86,
+          "gain_vs_R4": -0.08,
+          "gap_R4": 21.179401454482388
+        },
+        {
+          "architecture": "ShallowConvNet",
+          "recipe": "R2",
+          "test": 62.06,
+          "tr": 93.28,
+          "va": 67.83,
+          "gain_vs_R4": 0.7,
+          "gap_R4": 21.179401454482388
+        },
+        {
+          "architecture": "ShallowConvNet",
+          "recipe": "R3",
+          "test": 58.26,
+          "tr": 91.57,
+          "va": 67.2,
+          "gain_vs_R4": -3.09,
+          "gap_R4": 21.179401454482388
+        },
+        {
+          "architecture": "ShallowConvNet",
+          "recipe": "R4",
+          "test": 61.35,
+          "tr": 96.03,
+          "va": 74.86,
+          "gain_vs_R4": 0.0,
+          "gap_R4": 21.179401454482388
+        },
+        {
+          "architecture": "MI-BMInet",
+          "recipe": "R1",
+          "test": 61.78,
+          "tr": 82.52,
+          "va": 78.21,
+          "gain_vs_R4": -1.66,
+          "gap_R4": 13.13787409441602
+        },
+        {
+          "architecture": "MI-BMInet",
+          "recipe": "R2",
+          "test": 66.16,
+          "tr": 94.13,
+          "va": 77.15,
+          "gain_vs_R4": 2.72,
+          "gap_R4": 13.13787409441602
+        },
+        {
+          "architecture": "MI-BMInet",
+          "recipe": "R3",
+          "test": 60.97,
+          "tr": 81.86,
+          "va": 70.72,
+          "gain_vs_R4": -2.48,
+          "gap_R4": 13.13787409441602
+        },
+        {
+          "architecture": "MI-BMInet",
+          "recipe": "R4",
+          "test": 63.44,
+          "tr": 92.73,
+          "va": 79.59,
+          "gain_vs_R4": 0.0,
+          "gap_R4": 13.13787409441602
+        },
+        {
+          "architecture": "CSOANet-v2",
+          "recipe": "R1",
+          "test": 65.25,
+          "tr": 91.76,
+          "va": 83.51,
+          "gain_vs_R4": -0.18,
+          "gap_R4": 10.590309798778662
+        },
+        {
+          "architecture": "CSOANet-v2",
+          "recipe": "R2",
+          "test": 65.36,
+          "tr": 98.22,
+          "va": 79.84,
+          "gain_vs_R4": -0.07,
+          "gap_R4": 10.590309798778662
+        },
+        {
+          "architecture": "CSOANet-v2",
+          "recipe": "R3",
+          "test": 66.11,
+          "tr": 90.48,
+          "va": 81.44,
+          "gain_vs_R4": 0.69,
+          "gap_R4": 10.590309798778662
+        },
+        {
+          "architecture": "CSOANet-v2",
+          "recipe": "R4",
+          "test": 65.43,
+          "tr": 95.29,
+          "va": 84.7,
+          "gain_vs_R4": 0.0,
+          "gap_R4": 10.590309798778662
+        }
+      ],
+      "spearman": -0.06477502756312958,
+      "p": 0.8414811337938278,
+      "n": 12
+    },
+    "h4": {
+      "tau_ci": [
+        0.3333333333333334,
+        1.0
+      ],
+      "gain_T": {
+        "EEGNet": 4.79,
+        "ShallowConvNet": 2.438,
+        "MI-BMInet": 2.981,
+        "CSOANet-v2": 1.198
+      },
+      "gain_Tprime": {
+        "EEGNet": 0.932,
+        "ShallowConvNet": 1.58,
+        "MI-BMInet": 1.673,
+        "CSOANet-v2": 2.525
+      },
+      "selected": {
+        "F2/EEGNet": {
+          "config_id": 21,
+          "search_score": 83.66608044733044,
+          "test_mean": 62.51851851851852,
+          "config": {
+            "id": 21,
+            "optimizer": "adamw",
+            "lr": 0.004175468773266137,
+            "schedule": "step",
+            "batch": 16,
+            "noise": false,
+            "shift": true,
+            "crop": true,
+            "chdrop": false,
+            "mixup": false,
+            "label_smoothing": 0.1,
+            "select": "val_acc_es"
+          }
+        },
+        "F2/ShallowConvNet": {
+          "config_id": 23,
+          "search_score": 83.44595682095682,
+          "test_mean": 63.70987654320987,
+          "config": {
+            "id": 23,
+            "optimizer": "adam",
+            "lr": 0.00013752978608482582,
+            "schedule": "cosine",
+            "batch": 16,
+            "noise": true,
+            "shift": true,
+            "crop": false,
+            "chdrop": false,
+            "mixup": true,
+            "label_smoothing": 0.0,
+            "select": "val_acc_es"
+          }
+        },
+        "F2/MI-BMInet": {
+          "config_id": 3,
+          "search_score": 84.7130994005994,
+          "test_mean": 64.76543209876543,
+          "config": {
+            "id": 3,
+            "optimizer": "adamw",
+            "lr": 0.0039101833798968885,
+            "schedule": "cosine",
+            "batch": 16,
+            "noise": true,
+            "shift": true,
+            "crop": true,
+            "chdrop": false,
+            "mixup": true,
+            "label_smoothing": 0.0,
+            "select": "val_acc_es"
+          }
+        },
+        "F2/CSOANet-v2": {
+          "config_id": 3,
+          "search_score": 91.5330155955156,
+          "test_mean": 66.44444444444444,
+          "config": {
+            "id": 3,
+            "optimizer": "adamw",
+            "lr": 0.0039101833798968885,
+            "schedule": "cosine",
+            "batch": 16,
+            "noise": true,
+            "shift": true,
+            "crop": true,
+            "chdrop": false,
+            "mixup": true,
+            "label_smoothing": 0.0,
+            "select": "val_acc_es"
+          }
+        }
+      },
+      "shrinkage": {
+        "F2/EEGNet": 21.147561928811925,
+        "F2/ShallowConvNet": 19.73608027774695,
+        "F2/MI-BMInet": 19.947667301833974,
+        "F2/CSOANet-v2": 25.08857115107115
+      }
+    }
+  }
+}
