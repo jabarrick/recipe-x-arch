@@ -111,7 +111,7 @@ def fig3(df, out):
     fig.tight_layout(); fig.savefig(out); plt.close(fig)
 
 
-def fig4(iv, out):
+def fig4(iv, out, ivc=None):
     iv = iv.copy(); order = iv.groupby("pair")["mean"].apply(lambda s: s.abs().mean()).sort_values().index
     fig, axs = plt.subplots(1, 4, figsize=(7.2, 3.0), sharey=True, sharex=True)
     XL = (-8, 9)
@@ -119,10 +119,14 @@ def fig4(iv, out):
         ax = axs[j]; d = iv[iv.recipe == r].set_index("pair").loc[order]
         ax.axvspan(-SESOI, SESOI, color=GRID, zorder=0); ax.axvline(0, color=MUTED, lw=.8)
         for k, (p, row) in enumerate(d.iterrows()):
-            if row["hi"] > XL[1]:      # off-scale: arrow and value
+            if ivc is not None:        # clustered interval (post hoc), drawn underneath in a light tone
+                rc = ivc[(ivc.pair == p) & (ivc.recipe == r)].iloc[0]
+                lo_c, hi_c = max(rc["lo"], XL[0]), min(rc["hi"], XL[1])
+                ax.plot([lo_c, hi_c], [k - .22, k - .22], color=CAT[rc.category], alpha=.45, lw=3, solid_capstyle="butt")
+            if row["hi"] > XL[1]:      # off-scale: arrow, value and category
                 ax.annotate("", xy=(XL[1] - .2, k), xytext=(XL[1] - 2.2, k),
                             arrowprops=dict(arrowstyle="->", color=CAT[row.category], lw=1.6))
-                ax.text(XL[1] - 2.4, k + .28, f"{row['mean']:+.1f}", fontsize=6.5, ha="right", color=INK)
+                ax.text(XL[1] - 2.4, k + .28, f"{row['mean']:+.1f} {row.category}", fontsize=6.5, ha="right", color=INK)
                 continue
             ax.errorbar(row["mean"], k, xerr=row["half"], fmt="o", color=CAT[row.category], ms=4, capsize=2, lw=1.6)
             ax.text(min(row["hi"] + .4, XL[1] - .6), k + (.3 if row["hi"] + .4 > XL[1] - .6 else 0), row.category,
@@ -132,7 +136,9 @@ def fig4(iv, out):
         ax.grid(axis="x", color=GRID, lw=.5)
     axs[0].set_yticks(range(len(order)), [p.replace(" - ", " − ") for p in order], fontsize=7.5)
     hs = [plt.Line2D([], [], color=CAT[k], marker="o", lw=1.6, label=f"{k} = {CATNAME[k]}") for k in "ABEI"]
-    fig.legend(handles=hs, loc="lower center", ncol=4, frameon=False, fontsize=7.5)
+    if ivc is not None:
+        hs.append(plt.Line2D([], [], color="#9a9a96", alpha=.45, lw=3, label="clustered (post hoc)"))
+    fig.legend(handles=hs, loc="lower center", ncol=5, frameon=False, fontsize=7)
     fig.tight_layout(rect=(0, .08, 1, 1)); fig.savefig(out); plt.close(fig)
 
 
@@ -140,12 +146,14 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--res", default="results/confirmatory"); ap.add_argument("--ana", required=True)
     ap.add_argument("--out", required=True); ap.add_argument("--tag", default="V0.1")
+    ap.add_argument("--clustered", default=None, help="post hoc clustered intervals CSV (revision_v11)")
     a = ap.parse_args(); os.makedirs(a.out, exist_ok=True)
     df = pd.concat([load_long(f"{a.res}/F1a_long.csv"), load_long(f"{a.res}/F1b_long.csv")])
     fig1(df, f"{a.out}/fig1_cells_{a.tag}.png")
     fig2(df, f"{a.out}/fig2_interaction_{a.tag}.png")
     fig3(df, f"{a.out}/fig3_h2b_{a.tag}.png")
-    fig4(pd.read_csv(f"{a.ana}/F1_h3_intervals_f32.csv"), f"{a.out}/fig4_h3_intervals_{a.tag}.png")
+    ivc = pd.read_csv(a.clustered) if a.clustered else None
+    fig4(pd.read_csv(f"{a.ana}/F1_h3_intervals_f32.csv"), f"{a.out}/fig4_h3_intervals_{a.tag}.png", ivc)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,516 @@
+{
+  "h3_sensitivity": {
+    "t9": {
+      "n_definitive": 13,
+      "sign_reversals": 0,
+      "equiv_better": 0,
+      "inc_def": 17,
+      "outcome": "intermediate",
+      "median_halfwidth": 3.8891667043754663
+    },
+    "t8_dataset": {
+      "n_definitive": 11,
+      "sign_reversals": 0,
+      "equiv_better": 0,
+      "inc_def": 15,
+      "outcome": "intermediate",
+      "median_halfwidth": 3.7849494247748976
+    },
+    "z": {
+      "n_definitive": 20,
+      "sign_reversals": 0,
+      "equiv_better": 3,
+      "inc_def": 10,
+      "outcome": "A'",
+      "median_halfwidth": 2.804207140802325
+    },
+    "boot": {
+      "n_definitive": 20,
+      "sign_reversals": 0,
+      "equiv_better": 3,
+      "inc_def": 10,
+      "outcome": "A'",
+      "median_halfwidth": 2.4970045550623006
+    }
+  },
+  "h3_leave_one_fold_out": {
+    "drop_fold_1": {
+      "N": 84,
+      "outcome": "A'",
+      "n_definitive": 20,
+      "sign_reversals": 0,
+      "equiv_better": 3
+    },
+    "drop_fold_2": {
+      "N": 84,
+      "outcome": "A'",
+      "n_definitive": 20,
+      "sign_reversals": 0,
+      "equiv_better": 3
+    },
+    "drop_fold_3": {
+      "N": 85,
+      "outcome": "A'",
+      "n_definitive": 21,
+      "sign_reversals": 0,
+      "equiv_better": 3
+    },
+    "drop_fold_4": {
+      "N": 85,
+      "outcome": "A'",
+      "n_definitive": 21,
+      "sign_reversals": 0,
+      "equiv_better": 5
+    },
+    "drop_fold_5": {
+      "N": 86,
+      "outcome": "A'",
+      "n_definitive": 20,
+      "sign_reversals": 0,
+      "equiv_better": 3
+    }
+  },
+  "did_EEGNet_CSOANet": {
+    "did": {
+      "R2-R1": {
+        "mean": 3.49685534591195,
+        "lo": 2.286185292296735,
+        "hi": 4.707525399527165,
+        "lo_cluster": 1.3946856199169702,
+        "hi_cluster": 5.6680662743409025
+      },
+      "R3-R1": {
+        "mean": 15.808700209643606,
+        "lo": 13.714634738866405,
+        "hi": 17.902765680420806,
+        "lo_cluster": 10.284251936326541,
+        "hi_cluster": 21.282373471489652
+      },
+      "R4-R1": {
+        "mean": 5.204664570230608,
+        "lo": 3.8428255580982746,
+        "hi": 6.566503582362941,
+        "lo_cluster": 2.1777944544133763,
+        "hi_cluster": 8.34782941505111
+      }
+    },
+    "gap_EEGNet_minus_v2": {
+      "R1": 1.4934486373165616,
+      "R2": 4.990303983228511,
+      "R3": 17.30214884696017,
+      "R4": 6.69811320754717
+    }
+  },
+  "search_regression_clustered": {
+    "terms": [
+      {
+        "term": "C(optimizer)[T.adamw]",
+        "coef": -0.239,
+        "lo": -0.872,
+        "hi": 0.394,
+        "p": 0.459
+      },
+      {
+        "term": "C(schedule)[T.cosine]",
+        "coef": 0.553,
+        "lo": -0.105,
+        "hi": 1.211,
+        "p": 0.099
+      },
+      {
+        "term": "C(schedule)[T.step]",
+        "coef": 0.637,
+        "lo": -0.146,
+        "hi": 1.42,
+        "p": 0.111
+      },
+      {
+        "term": "C(batch)[T.32]",
+        "coef": 1.641,
+        "lo": 0.906,
+        "hi": 2.375,
+        "p": 0.0
+      },
+      {
+        "term": "C(batch)[T.64]",
+        "coef": 1.592,
+        "lo": 1.02,
+        "hi": 2.165,
+        "p": 0.0
+      },
+      {
+        "term": "C(select)[T.val_loss_all]",
+        "coef": -1.82,
+        "lo": -2.401,
+        "hi": -1.239,
+        "p": 0.0
+      },
+      {
+        "term": "loglr",
+        "coef": -0.554,
+        "lo": -1.139,
+        "hi": 0.03,
+        "p": 0.063
+      },
+      {
+        "term": "noise",
+        "coef": -0.422,
+        "lo": -0.946,
+        "hi": 0.101,
+        "p": 0.114
+      },
+      {
+        "term": "shift",
+        "coef": -0.238,
+        "lo": -0.981,
+        "hi": 0.505,
+        "p": 0.53
+      },
+      {
+        "term": "crop",
+        "coef": -5.892,
+        "lo": -6.615,
+        "hi": -5.17,
+        "p": 0.0
+      },
+      {
+        "term": "chdrop",
+        "coef": 0.984,
+        "lo": 0.206,
+        "hi": 1.762,
+        "p": 0.013
+      },
+      {
+        "term": "mixup",
+        "coef": 0.283,
+        "lo": -0.345,
+        "hi": 0.912,
+        "p": 0.377
+      },
+      {
+        "term": "ls",
+        "coef": -0.242,
+        "lo": -0.695,
+        "hi": 0.211,
+        "p": 0.295
+      }
+    ],
+    "n_configs": 24,
+    "n": 384,
+    "crop_by_arch": {
+      "EEGNet": {
+        "coef": -9.501305227468213,
+        "lo": -10.167958997298408,
+        "hi": -8.834651457638019
+      },
+      "ShallowConvNet": {
+        "coef": -5.813325173485866,
+        "lo": -6.576931138530179,
+        "hi": -5.049719208441553
+      },
+      "MI-BMInet": {
+        "coef": -6.829014792392773,
+        "lo": -7.469781047087392,
+        "hi": -6.188248537698153
+      },
+      "CSOANet-v2": {
+        "coef": -1.4255122253179078,
+        "lo": -3.352073336494919,
+        "hi": 0.5010488858591036
+      }
+    }
+  },
+  "csoanet_r3": {
+    "n_runs": 30,
+    "flagged": 11,
+    "train_acc_bins": {
+      "(0, 55]": 11,
+      "(55, 60]": 8,
+      "(60, 65]": 1,
+      "(65, 70]": 1,
+      "(70, 100]": 9
+    },
+    "runs": [
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 4,
+        "seed": 1,
+        "train_acc": 50.0,
+        "val_acc": 52.9,
+        "test": 52.8,
+        "training_failure": 1
+      },
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 0,
+        "seed": 2,
+        "train_acc": 50.0,
+        "val_acc": 50.0,
+        "test": 50.0,
+        "training_failure": 1
+      },
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 3,
+        "seed": 0,
+        "train_acc": 50.0,
+        "val_acc": 50.0,
+        "test": 50.0,
+        "training_failure": 1
+      },
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 1,
+        "seed": 0,
+        "train_acc": 50.9,
+        "val_acc": 50.8,
+        "test": 51.3,
+        "training_failure": 1
+      },
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 1,
+        "seed": 1,
+        "train_acc": 51.0,
+        "val_acc": 49.6,
+        "test": 50.0,
+        "training_failure": 1
+      },
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 2,
+        "seed": 2,
+        "train_acc": 51.4,
+        "val_acc": 49.2,
+        "test": 50.2,
+        "training_failure": 1
+      },
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 3,
+        "seed": 2,
+        "train_acc": 51.9,
+        "val_acc": 52.0,
+        "test": 51.6,
+        "training_failure": 1
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 3,
+        "seed": 1,
+        "train_acc": 52.6,
+        "val_acc": 54.9,
+        "test": 55.6,
+        "training_failure": 1
+      },
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 3,
+        "seed": 1,
+        "train_acc": 52.7,
+        "val_acc": 51.9,
+        "test": 52.5,
+        "training_failure": 1
+      },
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 2,
+        "seed": 0,
+        "train_acc": 52.9,
+        "val_acc": 51.4,
+        "test": 50.0,
+        "training_failure": 1
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 2,
+        "seed": 2,
+        "train_acc": 54.8,
+        "val_acc": 59.7,
+        "test": 53.4,
+        "training_failure": 1
+      },
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 0,
+        "seed": 1,
+        "train_acc": 55.2,
+        "val_acc": 53.0,
+        "test": 52.8,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 2,
+        "seed": 1,
+        "train_acc": 55.7,
+        "val_acc": 58.8,
+        "test": 50.2,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 3,
+        "seed": 0,
+        "train_acc": 56.8,
+        "val_acc": 50.6,
+        "test": 60.8,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 4,
+        "seed": 2,
+        "train_acc": 57.1,
+        "val_acc": 51.7,
+        "test": 53.2,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 2,
+        "seed": 0,
+        "train_acc": 58.7,
+        "val_acc": 55.4,
+        "test": 51.2,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 0,
+        "seed": 0,
+        "train_acc": 59.4,
+        "val_acc": 53.5,
+        "test": 56.2,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 0,
+        "seed": 2,
+        "train_acc": 59.6,
+        "val_acc": 55.1,
+        "test": 58.3,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 0,
+        "seed": 1,
+        "train_acc": 59.7,
+        "val_acc": 51.9,
+        "test": 60.2,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 3,
+        "seed": 2,
+        "train_acc": 61.7,
+        "val_acc": 55.0,
+        "test": 70.2,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 4,
+        "seed": 1,
+        "train_acc": 65.5,
+        "val_acc": 54.0,
+        "test": 57.4,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 1,
+        "seed": 1,
+        "train_acc": 71.6,
+        "val_acc": 71.1,
+        "test": 75.7,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 1,
+        "seed": 0,
+        "train_acc": 72.1,
+        "val_acc": 68.9,
+        "test": 76.0,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 0,
+        "seed": 0,
+        "train_acc": 73.3,
+        "val_acc": 69.2,
+        "test": 75.7,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 4,
+        "seed": 0,
+        "train_acc": 73.5,
+        "val_acc": 70.5,
+        "test": 60.4,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Cho2017",
+        "fold": 1,
+        "seed": 2,
+        "train_acc": 74.1,
+        "val_acc": 72.6,
+        "test": 75.9,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 2,
+        "seed": 1,
+        "train_acc": 74.3,
+        "val_acc": 78.1,
+        "test": 68.1,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 4,
+        "seed": 0,
+        "train_acc": 75.4,
+        "val_acc": 70.4,
+        "test": 71.8,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 1,
+        "seed": 2,
+        "train_acc": 75.6,
+        "val_acc": 69.4,
+        "test": 70.1,
+        "training_failure": 0
+      },
+      {
+        "dataset": "Lee2019_MI",
+        "fold": 4,
+        "seed": 2,
+        "train_acc": 78.0,
+        "val_acc": 72.5,
+        "test": 65.8,
+        "training_failure": 0
+      }
+    ]
+  },
+  "f2_int8_change": [
+    {
+      "pair": "MI-BMInet - CSOANet-v2",
+      "recipe": "R3",
+      "mean": -5.14,
+      "category": "B",
+      "mean8": -4.82,
+      "int8": "I"
+    }
+  ]
+}
