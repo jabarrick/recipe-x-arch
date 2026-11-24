@@ -1,0 +1,194 @@
+{
+  "T_registered": {
+    "condition": "T",
+    "N": 54,
+    "level": 0.9958333333333333,
+    "n_category_changes": 3,
+    "definitive_changes": 0,
+    "sign_reversals": 0,
+    "equiv_better_changes": 0,
+    "inconclusive_definitive_changes": 3,
+    "categories": {
+      "EEGNet - CSOANet-v2": {
+        "R1": "B",
+        "T": "I"
+      },
+      "EEGNet - MI-BMInet": {
+        "R1": "B",
+        "T": "I"
+      },
+      "EEGNet - ShallowConvNet": {
+        "R1": "I",
+        "T": "I"
+      },
+      "MI-BMInet - CSOANet-v2": {
+        "R1": "B",
+        "T": "I"
+      },
+      "ShallowConvNet - CSOANet-v2": {
+        "R1": "I",
+        "T": "I"
+      },
+      "ShallowConvNet - MI-BMInet": {
+        "R1": "I",
+        "T": "I"
+      }
+    },
+    "order_R1": [
+      "CSOANet-v2",
+      "MI-BMInet",
+      "ShallowConvNet",
+      "EEGNet"
+    ],
+    "order_T": [
+      "CSOANet-v2",
+      "MI-BMInet",
+      "ShallowConvNet",
+      "EEGNet"
+    ],
+    "kendall_tau": 1.0,
+    "kendall_p": 0.08333333333333333,
+    "mean_R1": {
+      "EEGNet": 57.728,
+      "ShallowConvNet": 61.272,
+      "MI-BMInet": 61.784,
+      "CSOANet-v2": 65.247
+    },
+    "mean_cond": {
+      "EEGNet": 62.519,
+      "ShallowConvNet": 63.71,
+      "MI-BMInet": 64.765,
+      "CSOANet-v2": 66.444
+    }
+  },
+  "T_level_99.79": {
+    "condition": "T_99.79",
+    "N": 54,
+    "level": 0.9979166666666667,
+    "n_category_changes": 3,
+    "definitive_changes": 0,
+    "sign_reversals": 0,
+    "equiv_better_changes": 0,
+    "inconclusive_definitive_changes": 3,
+    "categories": {
+      "EEGNet - CSOANet-v2": {
+        "R1": "B",
+        "T": "I"
+      },
+      "EEGNet - MI-BMInet": {
+        "R1": "B",
+        "T": "I"
+      },
+      "EEGNet - ShallowConvNet": {
+        "R1": "I",
+        "T": "I"
+      },
+      "MI-BMInet - CSOANet-v2": {
+        "R1": "B",
+        "T": "I"
+      },
+      "ShallowConvNet - CSOANet-v2": {
+        "R1": "I",
+        "T": "I"
+      },
+      "ShallowConvNet - MI-BMInet": {
+        "R1": "I",
+        "T": "I"
+      }
+    },
+    "order_R1": [
+      "CSOANet-v2",
+      "MI-BMInet",
+      "ShallowConvNet",
+      "EEGNet"
+    ],
+    "order_T": [
+      "CSOANet-v2",
+      "MI-BMInet",
+      "ShallowConvNet",
+      "EEGNet"
+    ],
+    "kendall_tau": 1.0,
+    "kendall_p": 0.08333333333333333,
+    "mean_R1": {
+      "EEGNet": 57.728,
+      "ShallowConvNet": 61.272,
+      "MI-BMInet": 61.784,
+      "CSOANet-v2": 65.247
+    },
+    "mean_cond": {
+      "EEGNet": 62.519,
+      "ShallowConvNet": 63.71,
+      "MI-BMInet": 64.765,
+      "CSOANet-v2": 66.444
+    }
+  },
+  "Tprime": {
+    "condition": "Tprime",
+    "N": 54,
+    "level": 0.9958333333333333,
+    "n_category_changes": 2,
+    "definitive_changes": 0,
+    "sign_reversals": 0,
+    "equiv_better_changes": 0,
+    "inconclusive_definitive_changes": 2,
+    "categories": {
+      "EEGNet - CSOANet-v2": {
+        "R1": "B",
+        "T": "B"
+      },
+      "EEGNet - MI-BMInet": {
+        "R1": "B",
+        "T": "B"
+      },
+      "EEGNet - ShallowConvNet": {
+        "R1": "I",
+        "T": "I"
+      },
+      "MI-BMInet - CSOANet-v2": {
+        "R1": "B",
+        "T": "I"
+      },
+      "ShallowConvNet - CSOANet-v2": {
+        "R1": "I",
+        "T": "B"
+      },
+      "ShallowConvNet - MI-BMInet": {
+        "R1": "I",
+        "T": "I"
+      }
+    },
+    "order_R1": [
+      "CSOANet-v2",
+      "MI-BMInet",
+      "ShallowConvNet",
+      "EEGNet"
+    ],
+    "order_T": [
+      "CSOANet-v2",
+      "MI-BMInet",
+      "ShallowConvNet",
+      "EEGNet"
+    ],
+    "kendall_tau": 1.0,
+    "kendall_p": 0.08333333333333333,
+    "mean_R1": {
+      "EEGNet": 57.728,
+      "ShallowConvNet": 61.272,
+      "MI-BMInet": 61.784,
+      "CSOANet-v2": 65.247
+    },
+    "mean_cond": {
+      "EEGNet": 58.66,
+      "ShallowConvNet": 62.852,
+      "MI-BMInet": 63.457,
+      "CSOANet-v2": 67.772
+    }
+  },
+  "n_fail": {
+    "T": 18,
+    "Tprime": 4,
+    "runs_T": 648,
+    "runs_Tprime": 648
+  }
+}
