@@ -1,0 +1,436 @@
+{
+  "crossed": {
+    "H1": {
+      "chi2": 29.099953210843523,
+      "df": 3,
+      "p": 2.133698700883597e-06
+    },
+    "H2": {
+      "chi2": 95.32982068817728,
+      "df": 9,
+      "p": 1.379819069980714e-16
+    },
+    "var_subject": 117.02383633881212,
+    "var_run": 5.384333507131027,
+    "var_resid": 15.0407797308112,
+    "converged": true
+  },
+  "h3_clustered": {
+    "transitions": {
+      "A->A": 10,
+      "A->I": 2,
+      "B->B": 2,
+      "B->I": 3,
+      "E->E": 1,
+      "E->I": 2,
+      "I->I": 4
+    },
+    "n_definitive": 13,
+    "kept": 17,
+    "sign_reversals": 0,
+    "equiv_better": 0,
+    "inc_def": 17,
+    "H3_supported": false,
+    "median_halfwidth": 3.8891667043754663,
+    "median_icc": 0.1471019976063161
+  },
+  "h2b_clustered": {
+    "mean": 3.5313759471289363,
+    "lo": 1.3946856199169702,
+    "hi": 5.6680662743409025,
+    "icc": 0.14130500201322554,
+    "p": 0.00463450449416586,
+    "G": 10
+  },
+  "home_clustered": {
+    "EEGNet": {
+      "h": -0.27511560324213047,
+      "lo": -1.0608385718678042,
+      "hi": 0.5106073653835431,
+      "icc": 0.13846317274188266
+    },
+    "MI-BMInet": {
+      "h": 2.5807773762666164,
+      "lo": 1.3901334731490345,
+      "hi": 3.7714212793841986,
+      "icc": 0.418121959514679
+    },
+    "CSOANet-v2": {
+      "h": 3.5598002927097467,
+      "lo": 2.46235647768623,
+      "hi": 4.657244107733264,
+      "icc": 0.24250408286629305
+    },
+    "EEGNet@R3 (not home)": {
+      "h": 2.9766929285532617,
+      "lo": 1.8132658262193408,
+      "hi": 4.140120030887182
+    }
+  },
+  "no_R3": {
+    "H1": {
+      "chi2": 183.3575327614526,
+      "df": 2,
+      "p": 1.5290357975025163e-40
+    },
+    "H2": {
+      "chi2": 59.03773148884284,
+      "df": 6,
+      "p": 7.058173140134458e-11
+    },
+    "fixed_shares": {
+      "A": 0.5553121759225921,
+      "R": 0.3447388676465998,
+      "AR": 0.0999489564308083
+    },
+    "recipe_range": {
+      "EEGNet": 6.207023060796644,
+      "ShallowConvNet": 4.538522012578625,
+      "MI-BMInet": 3.3398846960167816,
+      "CSOANet-v2": 1.792714884696025
+    },
+    "crossed": {
+      "H1": {
+        "chi2": 50.346750344677275,
+        "df": 2,
+        "p": 1.1677290159496667e-11
+      },
+      "H2": {
+        "chi2": 21.01376774088567,
+        "df": 6,
+        "p": 0.0018241956518215295
+      },
+      "var_subject": 126.23483582365877,
+      "var_run": 2.7491423974337366,
+      "var_resid": 13.357896032990089,
+      "converged": true
+    }
+  },
+  "did_EEGNet_MI": {
+    "R2-R1": {
+      "mean": 2.4418238993710686,
+      "lo_subject": 1.4164685743704872,
+      "hi_subject": 3.46717922437165,
+      "p_subject": 7.256197312717171e-06,
+      "lo_cluster": 1.2232234988711137,
+      "hi_cluster": 3.661144931166334
+    },
+    "R3-R1": {
+      "mean": 2.296121593291404,
+      "lo_subject": 1.4248401245076896,
+      "hi_subject": 3.167403062075118,
+      "p_subject": 8.877512103121755e-07,
+      "lo_cluster": 0.9136924764913197,
+      "hi_cluster": 3.6962647895101073
+    },
+    "R4-R1": {
+      "mean": 2.8671383647798745,
+      "lo_subject": 1.7894412863517561,
+      "hi_subject": 3.944835443207993,
+      "p_subject": 7.168494818243397e-07,
+      "lo_cluster": 0.8728143127268742,
+      "hi_cluster": 4.937871006560682
+    }
+  },
+  "T_vs_R4": {
+    "T-R4/EEGNet": {
+      "mean": -0.4698637316561847,
+      "lo": -1.0744400531144696,
+      "hi": 0.13471258980210005,
+      "lo_cluster": -1.2628135301708894,
+      "hi_cluster": 0.31565299102039324
+    },
+    "T-R4/ShallowConvNet": {
+      "mean": -1.011006289308175,
+      "lo": -1.7906644171730264,
+      "hi": -0.2313481614433236,
+      "lo_cluster": -2.4246503441875995,
+      "hi_cluster": 0.44249953504506667
+    },
+    "T-R4/MI-BMInet": {
+      "mean": 0.032232704402515765,
+      "lo": -0.7533291469008481,
+      "hi": 0.8177945557058797,
+      "lo_cluster": -1.169969548350872,
+      "hi_cluster": 1.2606306632372741
+    },
+    "T-R4/CSOANet-v2": {
+      "mean": -0.012054507337525945,
+      "lo": -0.5773048294344646,
+      "hi": 0.5531958147594126,
+      "lo_cluster": -0.936449609426352,
+      "hi_cluster": 0.9268367239946697
+    },
+    "Tprime-R4/EEGNet": {
+      "mean": 0.2838050314465408,
+      "lo": -0.30898663791843317,
+      "hi": 0.8765967008115148,
+      "lo_cluster": -0.41999576911928893,
+      "hi_cluster": 0.9846219513212368
+    },
+    "Tprime-R4/ShallowConvNet": {
+      "mean": 0.4536163522012587,
+      "lo": -0.012322287879174831,
+      "hi": 0.9195549922816921,
+      "lo_cluster": -0.10056626247481787,
+      "hi_cluster": 1.008206877286808
+    },
+    "Tprime-R4/MI-BMInet": {
+      "mean": 0.9478511530398327,
+      "lo": 0.42313589965893095,
+      "hi": 1.4725664064207344,
+      "lo_cluster": 0.04229562984785051,
+      "hi_cluster": 1.8558221306734015
+    },
+    "Tprime-R4/CSOANet-v2": {
+      "mean": 0.41509433962264136,
+      "lo": -0.5985272923615086,
+      "hi": 1.4287159716067914,
+      "lo_cluster": -1.3452483901942829,
+      "hi_cluster": 2.147228675617408
+    }
+  },
+  "diagnostics": [
+    {
+      "architecture": "EEGNet",
+      "recipe": "R1",
+      "best_epoch": 23.0,
+      "epochs_run": 38.0,
+      "train_acc": 74.74,
+      "val_acc": 71.3,
+      "test": 70.62
+    },
+    {
+      "architecture": "EEGNet",
+      "recipe": "R2",
+      "best_epoch": 43.5,
+      "epochs_run": 100.0,
+      "train_acc": 82.59,
+      "val_acc": 76.78,
+      "test": 75.91
+    },
+    {
+      "architecture": "EEGNet",
+      "recipe": "R3",
+      "best_epoch": 60.0,
+      "epochs_run": 100.0,
+      "train_acc": 82.09,
+      "val_acc": 76.9,
+      "test": 76.57
+    },
+    {
+      "architecture": "EEGNet",
+      "recipe": "R4",
+      "best_epoch": 27.0,
+      "epochs_run": 42.0,
+      "train_acc": 82.92,
+      "val_acc": 77.79,
+      "test": 76.82
+    },
+    {
+      "architecture": "ShallowConvNet",
+      "recipe": "R1",
+      "best_epoch": 18.0,
+      "epochs_run": 33.0,
+      "train_acc": 83.13,
+      "val_acc": 70.93,
+      "test": 69.83
+    },
+    {
+      "architecture": "ShallowConvNet",
+      "recipe": "R2",
+      "best_epoch": 6.5,
+      "epochs_run": 100.0,
+      "train_acc": 83.12,
+      "val_acc": 71.67,
+      "test": 71.86
+    },
+    {
+      "architecture": "ShallowConvNet",
+      "recipe": "R3",
+      "best_epoch": 11.0,
+      "epochs_run": 25.5,
+      "train_acc": 77.38,
+      "val_acc": 72.22,
+      "test": 71.59
+    },
+    {
+      "architecture": "ShallowConvNet",
+      "recipe": "R4",
+      "best_epoch": 16.5,
+      "epochs_run": 31.5,
+      "train_acc": 92.87,
+      "val_acc": 74.76,
+      "test": 74.37
+    },
+    {
+      "architecture": "MI-BMInet",
+      "recipe": "R1",
+      "best_epoch": 39.0,
+      "epochs_run": 54.0,
+      "train_acc": 81.41,
+      "val_acc": 73.91,
+      "test": 73.24
+    },
+    {
+      "architecture": "MI-BMInet",
+      "recipe": "R2",
+      "best_epoch": 20.0,
+      "epochs_run": 100.0,
+      "train_acc": 84.86,
+      "val_acc": 76.11,
+      "test": 76.09
+    },
+    {
+      "architecture": "MI-BMInet",
+      "recipe": "R3",
+      "best_epoch": 24.5,
+      "epochs_run": 100.0,
+      "train_acc": 85.18,
+      "val_acc": 77.54,
+      "test": 76.89
+    },
+    {
+      "architecture": "MI-BMInet",
+      "recipe": "R4",
+      "best_epoch": 20.5,
+      "epochs_run": 35.5,
+      "train_acc": 86.47,
+      "val_acc": 76.71,
+      "test": 76.58
+    },
+    {
+      "architecture": "CSOANet-v2",
+      "recipe": "R1",
+      "best_epoch": 18.0,
+      "epochs_run": 33.0,
+      "train_acc": 73.6,
+      "val_acc": 69.59,
+      "test": 69.12
+    },
+    {
+      "architecture": "CSOANet-v2",
+      "recipe": "R2",
+      "best_epoch": 63.5,
+      "epochs_run": 100.0,
+      "train_acc": 78.09,
+      "val_acc": 71.17,
+      "test": 70.92
+    },
+    {
+      "architecture": "CSOANet-v2",
+      "recipe": "R3",
+      "best_epoch": 62.5,
+      "epochs_run": 100.0,
+      "train_acc": 60.85,
+      "val_acc": 58.47,
+      "test": 59.27
+    },
+    {
+      "architecture": "CSOANet-v2",
+      "recipe": "R4",
+      "best_epoch": 19.0,
+      "epochs_run": 34.0,
+      "train_acc": 76.67,
+      "val_acc": 70.55,
+      "test": 70.13
+    }
+  ],
+  "search_regression": {
+    "r2": 0.9055926971783894,
+    "n": 384,
+    "terms": [
+      {
+        "term": "C(optimizer)[T.adamw]",
+        "coef": -0.239,
+        "lo": -1.217,
+        "hi": 0.739,
+        "p": 0.631
+      },
+      {
+        "term": "C(schedule)[T.cosine]",
+        "coef": 0.553,
+        "lo": -0.471,
+        "hi": 1.578,
+        "p": 0.289
+      },
+      {
+        "term": "C(schedule)[T.step]",
+        "coef": 0.637,
+        "lo": -0.64,
+        "hi": 1.913,
+        "p": 0.327
+      },
+      {
+        "term": "C(batch)[T.32]",
+        "coef": 1.641,
+        "lo": 0.335,
+        "hi": 2.946,
+        "p": 0.014
+      },
+      {
+        "term": "C(batch)[T.64]",
+        "coef": 1.592,
+        "lo": 0.44,
+        "hi": 2.745,
+        "p": 0.007
+      },
+      {
+        "term": "C(select)[T.val_loss_all]",
+        "coef": -1.82,
+        "lo": -2.759,
+        "hi": -0.881,
+        "p": 0.0
+      },
+      {
+        "term": "loglr",
+        "coef": -0.554,
+        "lo": -1.404,
+        "hi": 0.295,
+        "p": 0.2
+      },
+      {
+        "term": "noise",
+        "coef": -0.422,
+        "lo": -1.444,
+        "hi": 0.599,
+        "p": 0.417
+      },
+      {
+        "term": "shift",
+        "coef": -0.238,
+        "lo": -1.109,
+        "hi": 0.632,
+        "p": 0.591
+      },
+      {
+        "term": "crop",
+        "coef": -5.892,
+        "lo": -6.889,
+        "hi": -4.896,
+        "p": 0.0
+      },
+      {
+        "term": "chdrop",
+        "coef": 0.984,
+        "lo": -0.15,
+        "hi": 2.119,
+        "p": 0.089
+      },
+      {
+        "term": "mixup",
+        "coef": 0.283,
+        "lo": -0.572,
+        "hi": 1.138,
+        "p": 0.515
+      },
+      {
+        "term": "ls",
+        "coef": -0.242,
+        "lo": -1.161,
+        "hi": 0.677,
+        "p": 0.605
+      }
+    ]
+  }
+}

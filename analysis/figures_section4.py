@@ -33,15 +33,22 @@ def ci95(x):
 
 def fig1(df, out):
     avg = seed_average(df)
+    flag = df.groupby(["subject", "architecture", "recipe"], observed=True).training_failure.max().rename("flag").reset_index()
+    flag["architecture"] = flag["architecture"].astype(str); flag["recipe"] = flag["recipe"].astype(str)
+    avg = avg.assign(architecture=avg.architecture.astype(str), recipe=avg.recipe.astype(str)).merge(
+        flag, on=["subject", "architecture", "recipe"], how="left")
     fig, axs = plt.subplots(4, 4, figsize=(7.2, 7.2), sharex=True, sharey=True)
     rng = np.random.default_rng(0)
     for i, a in enumerate(ARCHS):
         for j, r in enumerate(RECIPES):
             ax = axs[i, j]; c = avg[(avg.architecture == a) & (avg.recipe == r)]
             for ds, mk in (("Lee2019_MI", "o"), ("Cho2017", "^")):
-                v = c[c.dataset == ds].y.to_numpy()
-                ax.scatter(rng.uniform(-.3, .3, len(v)), v, s=7, marker=mk, facecolor="none",
-                           edgecolor=COL[a], linewidth=.6, alpha=.75)
+                cc = c[c.dataset == ds]
+                for fl, fc in ((0, "none"), (1, INK)):
+                    v = cc[cc.flag == fl].y.to_numpy()
+                    ax.scatter(rng.uniform(-.3, .3, len(v)), v, s=7 if not fl else 9, marker=mk,
+                               facecolor=fc if fl else "none", edgecolor=INK if fl else COL[a],
+                               linewidth=.6, alpha=.75 if not fl else .9)
             m, h = ci95(c.y.to_numpy())
             ax.errorbar([0.45], [m], yerr=[h], fmt="o", color=INK, ms=4, capsize=2, lw=1.2)
             ax.axhline(50, color=MUTED, lw=.8, ls="--")
@@ -52,8 +59,7 @@ def fig1(df, out):
             if HOME.get(a) == r:
                 ax.add_patch(plt.Rectangle((0, 0), 1, 1, transform=ax.transAxes, fill=False, ec=INK, lw=1.8,
                                            clip_on=False))
-    fig.text(.5, .005, "Each point = one subject (○ Lee2019-MI, △ Cho2017); black = cell mean ± 95 % CI; "
-             "dashed = chance; framed = home cell", ha="center", color=MUTED, fontsize=7.5)
+    # legend text is in the caption
     fig.supylabel("Balanced accuracy, float32 (%)", color=INK, fontsize=9)
     fig.tight_layout(rect=(0.02, 0.02, 1, 1)); fig.savefig(out); plt.close(fig)
 
@@ -107,13 +113,21 @@ def fig3(df, out):
 
 def fig4(iv, out):
     iv = iv.copy(); order = iv.groupby("pair")["mean"].apply(lambda s: s.abs().mean()).sort_values().index
-    fig, axs = plt.subplots(1, 4, figsize=(7.2, 3.0), sharey=True)
+    fig, axs = plt.subplots(1, 4, figsize=(7.2, 3.0), sharey=True, sharex=True)
+    XL = (-8, 9)
     for j, r in enumerate(RECIPES):
         ax = axs[j]; d = iv[iv.recipe == r].set_index("pair").loc[order]
         ax.axvspan(-SESOI, SESOI, color=GRID, zorder=0); ax.axvline(0, color=MUTED, lw=.8)
         for k, (p, row) in enumerate(d.iterrows()):
+            if row["hi"] > XL[1]:      # off-scale: arrow and value
+                ax.annotate("", xy=(XL[1] - .2, k), xytext=(XL[1] - 2.2, k),
+                            arrowprops=dict(arrowstyle="->", color=CAT[row.category], lw=1.6))
+                ax.text(XL[1] - 2.4, k + .28, f"{row['mean']:+.1f}", fontsize=6.5, ha="right", color=INK)
+                continue
             ax.errorbar(row["mean"], k, xerr=row["half"], fmt="o", color=CAT[row.category], ms=4, capsize=2, lw=1.6)
-            ax.text(row["hi"] + .4, k, row.category, fontsize=7, va="center", color=INK)
+            ax.text(min(row["hi"] + .4, XL[1] - .6), k + (.3 if row["hi"] + .4 > XL[1] - .6 else 0), row.category,
+                    fontsize=7, va="center", color=INK)
+        ax.set_xlim(*XL)
         ax.set_title(r, color=INK); ax.set_xlabel("difference (points)", fontsize=8)
         ax.grid(axis="x", color=GRID, lw=.5)
     axs[0].set_yticks(range(len(order)), [p.replace(" - ", " − ") for p in order], fontsize=7.5)
