@@ -1,0 +1,9 @@
+dataset,architecture,channels,samples,params_train,params_deployed,flash_kB,MMACs,peak_kB,stream_kB,peak_at
+"Lee2019_MI (F1a, F2)",EEGNet,62,1000,3818,3762,3.8,63.181,544.9,500.0,Conv -> /block1/block1.0/Conv_output_0
+"Lee2019_MI (F1a, F2)",ShallowConvNet,62,1000,105202,105162,102.9,157.375,2424.3,2401.9,Conv -> /conv_time/Conv_output_0
+"Lee2019_MI (F1a, F2)",MI-BMInet,62,1000,6722,6562,6.5,1.985,91.9,31.3,Conv -> /spatial/Conv_output_0
+"Lee2019_MI (F1a, F2)",CSOANet-v2,62,1000,3800,3634,3.6,2.082,76.3,23.5,Conv -> /spatial/Conv_output_0
+Cho2017 (F1b),EEGNet,64,750,3594,3538,3.5,48.909,421.9,386.7,Conv -> /block1/block1.0/Conv_output_0
+Cho2017 (F1b),ShallowConvNet,64,750,107042,107002,104.7,120.839,1861.9,1843.4,Conv -> /conv_time/Conv_output_0
+Cho2017 (F1b),MI-BMInet,64,750,6530,6370,6.3,1.537,70.4,23.5,Conv -> /spatial/Conv_output_0
+Cho2017 (F1b),CSOANet-v2,64,750,3704,3538,3.5,1.573,58.7,17.7,Conv -> /spatial/Conv_output_0
