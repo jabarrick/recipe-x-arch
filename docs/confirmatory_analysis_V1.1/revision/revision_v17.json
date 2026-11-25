@@ -1,0 +1,210 @@
+{
+  "logit": {
+    "registered_subject": {
+      "H1": {
+        "chi2": 140.4,
+        "df": 3,
+        "p": 3.1042440365958607e-30
+      },
+      "H2": {
+        "chi2": 261.32,
+        "df": 9,
+        "p": 4.0601251485658565e-51
+      }
+    },
+    "registered_crossed": {
+      "H1": {
+        "chi2": 31.88,
+        "df": 3,
+        "p": 5.560582880390303e-07
+      },
+      "H2": {
+        "chi2": 75.43,
+        "df": 9,
+        "p": 1.301096625926973e-12
+      }
+    },
+    "no_crop_subject": {
+      "H1": {
+        "chi2": 5.01,
+        "df": 2,
+        "p": 0.08147355658400869
+      },
+      "H2": {
+        "chi2": 9.98,
+        "df": 6,
+        "p": 0.12551715007187345
+      }
+    },
+    "no_crop_crossed": {
+      "H1": {
+        "chi2": 2.49,
+        "df": 2,
+        "p": 0.2878472570957904
+      },
+      "H2": {
+        "chi2": 4.9,
+        "df": 6,
+        "p": 0.5562597753394474
+      }
+    },
+    "H2b": {
+      "R2": {
+        "mean": 0.22,
+        "lo": 0.121,
+        "hi": 0.32,
+        "icc": 0.074
+      },
+      "R4": {
+        "mean": 0.27,
+        "lo": 0.088,
+        "hi": 0.451,
+        "icc": 0.246
+      },
+      "R1nc": {
+        "mean": 0.256,
+        "lo": 0.121,
+        "hi": 0.392,
+        "icc": 0.186
+      }
+    },
+    "H2b_R2_vs_R1nc": {
+      "mean": -0.036,
+      "lo": -0.112,
+      "hi": 0.041
+    },
+    "note": "'H2b' keys R2/R4/R1nc are gap changes (EEGNet-CSOANet-v2) relative to R1; R1nc entry = crop effect"
+  },
+  "did18": {
+    "pct": {
+      "ex95": 6,
+      "exBonf": 2,
+      "exBonf_list": [
+        [
+          "ShallowConvNet - MI-BMInet",
+          "R4 vs R2"
+        ],
+        [
+          "ShallowConvNet - CSOANet-v2",
+          "R4 vs R2"
+        ]
+      ]
+    },
+    "logit": {
+      "ex95": 4,
+      "exBonf": 0,
+      "exBonf_list": []
+    }
+  },
+  "wild_cluster_bootstrap": {
+    "H2b R2 vs R1": {
+      "mean": 3.5,
+      "lo": 1.44,
+      "hi": 5.51,
+      "p_wcr": 0.0015
+    },
+    "H2b R4 vs R1": {
+      "mean": 5.2,
+      "lo": 2.04,
+      "hi": 8.39,
+      "p_wcr": 0.0026
+    },
+    "H2b R2 vs R1nc": {
+      "mean": -1.29,
+      "lo": -2.25,
+      "hi": -0.35,
+      "p_wcr": 0.0163
+    },
+    "gap change R1nc vs R1": {
+      "mean": 4.78,
+      "lo": 2.74,
+      "hi": 6.87,
+      "p_wcr": 0.0009
+    },
+    "Shallow-CSOA R4 vs R2": {
+      "mean": 3.3,
+      "lo": 2.02,
+      "hi": 4.52,
+      "p_wcr": 0.0007
+    },
+    "Shallow-MI R4 vs R2": {
+      "mean": 2.01,
+      "lo": 0.93,
+      "hi": 3.13,
+      "p_wcr": 0.0011
+    },
+    "EEG-MI R2 vs R1": {
+      "mean": 2.44,
+      "lo": 1.13,
+      "hi": 3.72,
+      "p_wcr": 0.0007
+    },
+    "R1nc-R1 EEGNet": {
+      "mean": 5.86,
+      "lo": 3.75,
+      "hi": 8.04,
+      "p_wcr": 0.0006
+    },
+    "R1nc-R1 ShallowConvNet": {
+      "mean": 3.98,
+      "lo": 2.59,
+      "hi": 5.42,
+      "p_wcr": 0.0005
+    },
+    "R1nc-R1 MI-BMInet": {
+      "mean": 3.74,
+      "lo": 2.01,
+      "hi": 5.45,
+      "p_wcr": 0.0007
+    },
+    "R1nc-R1 CSOANet-v2": {
+      "mean": 1.07,
+      "lo": -0.07,
+      "hi": 2.21,
+      "p_wcr": 0.0564
+    }
+  },
+  "crossed_LRT_converged_best_of_optimisers": {
+    "R1-R4 pct": {
+      "H1": [
+        29.1,
+        2.1e-06
+      ],
+      "H2": [
+        95.3,
+        1.4e-16
+      ]
+    },
+    "R1,R2,R4 pct": {
+      "H1": [
+        50.3,
+        1.2e-11
+      ],
+      "H2": [
+        21.0,
+        0.0018
+      ]
+    },
+    "R1nc,R2,R4 pct": {
+      "H1": [
+        4.3,
+        0.117
+      ],
+      "H2": [
+        9.9,
+        0.131
+      ],
+      "note": "V1.4 reported chi2(6)=4.6, p=0.60 from a fit whose lbfgs optimiser had not converged; best converged fit gives 9.9, p=0.13"
+    },
+    "R1-R4 logit": {
+      "H1": [
+        31.9,
+        5.6e-07
+      ],
+      "H2": [
+        75.4,
+        1.3e-12
+      ]
+    }
+  }
+}

@@ -70,11 +70,9 @@ def fig2(df, out):
     x = np.arange(4)
     for i, a in enumerate(ARCHS):
         m = np.nanmean(y[:, i], 0); h = np.array([ci95(y[:, i, j])[1] for j in range(4)])
-        ax.errorbar(x + (i - 1.5) * .06, m, yerr=h, color=COL[a], marker=MARK[a], ms=5, lw=2, capsize=2,
-                    mec="white", mew=.8, label=a)
-        nudge = {"EEGNet": .9, "MI-BMInet": -.6}.get(a, 0)
-        ax.text(3.15, m[-1] + nudge, a, color=INK, fontsize=7.5, va="center")
-    ax.set_xticks(x, RECIPES); ax.set_xlim(-.3, 4.3); ax.set_ylabel("Cell mean, float32 (%) ± 95 % CI")
+        ax.errorbar(x + (i - 1.5) * .16, m, yerr=h, color=COL[a], marker=MARK[a], ms=5, lw=0, elinewidth=1.4,
+                    capsize=2, mec="white", mew=.8, label=a)      # recipes are categories: no connecting lines
+    ax.set_xticks(x, RECIPES); ax.set_xlim(-.5, 3.5); ax.set_ylabel("Cell mean, float32 (%) ± 95 % CI")
     ax.grid(axis="y", color=GRID, lw=.5); ax.legend(frameon=False, fontsize=7, loc="lower left")
     t = np.nanmean(y, 0); r = t - t.mean(1, keepdims=True) - t.mean(0, keepdims=True) + t.mean()
     lim = np.abs(r).max()
@@ -104,7 +102,7 @@ def fig3(df, out):
         m, h = ci95(cc); ax.errorbar(k + .3, m, yerr=h, fmt="o", color=INK, capsize=3)
         ax.text(k + .36, m, f"{m:+.2f}", fontsize=7.5, va="center", color=INK)
     m, h = ci95(c); ax.errorbar(2, m, yerr=h, fmt="D", color=INK, capsize=3)
-    ax.text(2.07, m, f"{m:+.2f}\n[{m - h:.2f}, {m + h:.2f}]", fontsize=7.5, va="center", color=INK)
+    ax.text(2.07, m, f"{m:+.2f}\n({m - h:.2f}, {m + h:.2f})", fontsize=7.5, va="center", color=INK)
     ax.set_xticks([0, 1, 2], ["Lee2019-MI", "Cho2017", "Pooled"]); ax.set_xlim(-.5, 2.8)
     ax.set_ylabel("c[s] (points)"); ax.set_title("H2b: (R2−R1) EEGNet − (R2−R1) CSOANet-v2", fontsize=8.5)
     ax.text(2.75, -SESOI + .3, "±2 SESOI", fontsize=7, color=MUTED, ha="right")
