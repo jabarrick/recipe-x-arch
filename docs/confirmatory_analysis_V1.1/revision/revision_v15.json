@@ -1,0 +1,500 @@
+{
+  "F2": {
+    "cell_means": {
+      "R1": {
+        "EEGNet": 57.73,
+        "ShallowConvNet": 61.27,
+        "MI-BMInet": 61.78,
+        "CSOANet-v2": 65.25
+      },
+      "R2": {
+        "EEGNet": 58.62,
+        "ShallowConvNet": 62.06,
+        "MI-BMInet": 66.16,
+        "CSOANet-v2": 65.36
+      },
+      "R3": {
+        "EEGNet": 59.74,
+        "ShallowConvNet": 58.26,
+        "MI-BMInet": 60.97,
+        "CSOANet-v2": 66.11
+      },
+      "R4": {
+        "EEGNet": 57.95,
+        "ShallowConvNet": 61.35,
+        "MI-BMInet": 63.44,
+        "CSOANet-v2": 65.43
+      }
+    },
+    "cell_means_failures_excluded": {
+      "R1": {
+        "EEGNet": 60.17,
+        "ShallowConvNet": 61.74,
+        "MI-BMInet": 62.73,
+        "CSOANet-v2": 65.34
+      },
+      "R2": {
+        "EEGNet": 58.92,
+        "ShallowConvNet": 62.06,
+        "MI-BMInet": 67.2,
+        "CSOANet-v2": 65.75
+      },
+      "R3": {
+        "EEGNet": 59.74,
+        "ShallowConvNet": 58.4,
+        "MI-BMInet": 62.73,
+        "CSOANet-v2": 66.31
+      },
+      "R4": {
+        "EEGNet": 58.04,
+        "ShallowConvNet": 61.38,
+        "MI-BMInet": 64.1,
+        "CSOANet-v2": 65.52
+      }
+    },
+    "flagged_runs": {
+      "R1": {
+        "EEGNet": 42,
+        "ShallowConvNet": 7,
+        "MI-BMInet": 16,
+        "CSOANet-v2": 1
+      },
+      "R2": {
+        "EEGNet": 6,
+        "ShallowConvNet": 0,
+        "MI-BMInet": 10,
+        "CSOANet-v2": 4
+      },
+      "R3": {
+        "EEGNet": 0,
+        "ShallowConvNet": 3,
+        "MI-BMInet": 21,
+        "CSOANet-v2": 2
+      },
+      "R4": {
+        "EEGNet": 2,
+        "ShallowConvNet": 1,
+        "MI-BMInet": 8,
+        "CSOANet-v2": 1
+      }
+    },
+    "order": {
+      "R1": [
+        "CSOANet-v2",
+        "MI-BMInet",
+        "ShallowConvNet",
+        "EEGNet"
+      ],
+      "R2": [
+        "MI-BMInet",
+        "CSOANet-v2",
+        "ShallowConvNet",
+        "EEGNet"
+      ],
+      "R3": [
+        "CSOANet-v2",
+        "MI-BMInet",
+        "EEGNet",
+        "ShallowConvNet"
+      ],
+      "R4": [
+        "CSOANet-v2",
+        "MI-BMInet",
+        "ShallowConvNet",
+        "EEGNet"
+      ]
+    },
+    "intervals": [
+      {
+        "pair": "EEGNet - ShallowConvNet",
+        "recipe": "R1",
+        "mean": -3.54,
+        "lo": -7.5,
+        "hi": 0.41,
+        "category": "I"
+      },
+      {
+        "pair": "EEGNet - ShallowConvNet",
+        "recipe": "R2",
+        "mean": -3.43,
+        "lo": -8.68,
+        "hi": 1.82,
+        "category": "I"
+      },
+      {
+        "pair": "EEGNet - ShallowConvNet",
+        "recipe": "R3",
+        "mean": 1.48,
+        "lo": -3.3,
+        "hi": 6.26,
+        "category": "I"
+      },
+      {
+        "pair": "EEGNet - ShallowConvNet",
+        "recipe": "R4",
+        "mean": -3.4,
+        "lo": -7.94,
+        "hi": 1.13,
+        "category": "I"
+      },
+      {
+        "pair": "EEGNet - MI-BMInet",
+        "recipe": "R1",
+        "mean": -4.06,
+        "lo": -7.46,
+        "hi": -0.66,
+        "category": "B"
+      },
+      {
+        "pair": "EEGNet - MI-BMInet",
+        "recipe": "R2",
+        "mean": -7.54,
+        "lo": -12.93,
+        "hi": -2.15,
+        "category": "B"
+      },
+      {
+        "pair": "EEGNet - MI-BMInet",
+        "recipe": "R3",
+        "mean": -1.23,
+        "lo": -5.89,
+        "hi": 3.44,
+        "category": "I"
+      },
+      {
+        "pair": "EEGNet - MI-BMInet",
+        "recipe": "R4",
+        "mean": -5.49,
+        "lo": -9.52,
+        "hi": -1.46,
+        "category": "B"
+      },
+      {
+        "pair": "EEGNet - CSOANet-v2",
+        "recipe": "R1",
+        "mean": -7.52,
+        "lo": -12.41,
+        "hi": -2.63,
+        "category": "B"
+      },
+      {
+        "pair": "EEGNet - CSOANet-v2",
+        "recipe": "R2",
+        "mean": -6.73,
+        "lo": -13.49,
+        "hi": 0.02,
+        "category": "I"
+      },
+      {
+        "pair": "EEGNet - CSOANet-v2",
+        "recipe": "R3",
+        "mean": -6.37,
+        "lo": -12.82,
+        "hi": 0.08,
+        "category": "I"
+      },
+      {
+        "pair": "EEGNet - CSOANet-v2",
+        "recipe": "R4",
+        "mean": -7.48,
+        "lo": -13.76,
+        "hi": -1.19,
+        "category": "B"
+      },
+      {
+        "pair": "ShallowConvNet - MI-BMInet",
+        "recipe": "R1",
+        "mean": -0.51,
+        "lo": -4.07,
+        "hi": 3.04,
+        "category": "I"
+      },
+      {
+        "pair": "ShallowConvNet - MI-BMInet",
+        "recipe": "R2",
+        "mean": -4.1,
+        "lo": -7.14,
+        "hi": -1.07,
+        "category": "B"
+      },
+      {
+        "pair": "ShallowConvNet - MI-BMInet",
+        "recipe": "R3",
+        "mean": -2.71,
+        "lo": -7.03,
+        "hi": 1.61,
+        "category": "I"
+      },
+      {
+        "pair": "ShallowConvNet - MI-BMInet",
+        "recipe": "R4",
+        "mean": -2.09,
+        "lo": -4.95,
+        "hi": 0.76,
+        "category": "I"
+      },
+      {
+        "pair": "ShallowConvNet - CSOANet-v2",
+        "recipe": "R1",
+        "mean": -3.98,
+        "lo": -8.4,
+        "hi": 0.45,
+        "category": "I"
+      },
+      {
+        "pair": "ShallowConvNet - CSOANet-v2",
+        "recipe": "R2",
+        "mean": -3.3,
+        "lo": -7.23,
+        "hi": 0.63,
+        "category": "I"
+      },
+      {
+        "pair": "ShallowConvNet - CSOANet-v2",
+        "recipe": "R3",
+        "mean": -7.85,
+        "lo": -12.83,
+        "hi": -2.87,
+        "category": "B"
+      },
+      {
+        "pair": "ShallowConvNet - CSOANet-v2",
+        "recipe": "R4",
+        "mean": -4.07,
+        "lo": -8.77,
+        "hi": 0.62,
+        "category": "I"
+      },
+      {
+        "pair": "MI-BMInet - CSOANet-v2",
+        "recipe": "R1",
+        "mean": -3.46,
+        "lo": -6.9,
+        "hi": -0.03,
+        "category": "B"
+      },
+      {
+        "pair": "MI-BMInet - CSOANet-v2",
+        "recipe": "R2",
+        "mean": 0.8,
+        "lo": -3.68,
+        "hi": 5.28,
+        "category": "I"
+      },
+      {
+        "pair": "MI-BMInet - CSOANet-v2",
+        "recipe": "R3",
+        "mean": -5.14,
+        "lo": -10.21,
+        "hi": -0.07,
+        "category": "B"
+      },
+      {
+        "pair": "MI-BMInet - CSOANet-v2",
+        "recipe": "R4",
+        "mean": -1.98,
+        "lo": -6.93,
+        "hi": 2.97,
+        "category": "I"
+      }
+    ]
+  },
+  "F1_order": {
+    "R1": [
+      "MI-BMInet",
+      "EEGNet",
+      "ShallowConvNet",
+      "CSOANet-v2"
+    ],
+    "R2": [
+      "MI-BMInet",
+      "EEGNet",
+      "ShallowConvNet",
+      "CSOANet-v2"
+    ],
+    "R3": [
+      "MI-BMInet",
+      "EEGNet",
+      "ShallowConvNet",
+      "CSOANet-v2"
+    ],
+    "R4": [
+      "EEGNet",
+      "MI-BMInet",
+      "ShallowConvNet",
+      "CSOANet-v2"
+    ]
+  },
+  "residuals_tost": {
+    "n_equivalent": 12,
+    "n": 12,
+    "table": [
+      {
+        "architecture": "EEGNet",
+        "recipe": "R1nc",
+        "residual": -0.12,
+        "lo": -0.75,
+        "hi": 0.51,
+        "tost90_lo": -0.63,
+        "tost90_hi": 0.39,
+        "equivalent": true
+      },
+      {
+        "architecture": "EEGNet",
+        "recipe": "R2",
+        "residual": -0.01,
+        "lo": -0.39,
+        "hi": 0.37,
+        "tost90_lo": -0.32,
+        "tost90_hi": 0.29,
+        "equivalent": true
+      },
+      {
+        "architecture": "EEGNet",
+        "recipe": "R4",
+        "residual": 0.14,
+        "lo": -0.55,
+        "hi": 0.83,
+        "tost90_lo": -0.42,
+        "tost90_hi": 0.7,
+        "equivalent": true
+      },
+      {
+        "architecture": "ShallowConvNet",
+        "recipe": "R1nc",
+        "residual": 0.28,
+        "lo": -0.29,
+        "hi": 0.84,
+        "tost90_lo": -0.19,
+        "tost90_hi": 0.74,
+        "equivalent": true
+      },
+      {
+        "architecture": "ShallowConvNet",
+        "recipe": "R2",
+        "residual": -0.99,
+        "lo": -1.59,
+        "hi": -0.4,
+        "tost90_lo": -1.48,
+        "tost90_hi": -0.51,
+        "equivalent": true
+      },
+      {
+        "architecture": "ShallowConvNet",
+        "recipe": "R4",
+        "residual": 0.72,
+        "lo": 0.24,
+        "hi": 1.19,
+        "tost90_lo": 0.33,
+        "tost90_hi": 1.1,
+        "equivalent": true
+      },
+      {
+        "architecture": "MI-BMInet",
+        "recipe": "R1nc",
+        "residual": 0.24,
+        "lo": -0.23,
+        "hi": 0.71,
+        "tost90_lo": -0.14,
+        "tost90_hi": 0.62,
+        "equivalent": true
+      },
+      {
+        "architecture": "MI-BMInet",
+        "recipe": "R2",
+        "residual": 0.03,
+        "lo": -0.29,
+        "hi": 0.34,
+        "tost90_lo": -0.23,
+        "tost90_hi": 0.28,
+        "equivalent": true
+      },
+      {
+        "architecture": "MI-BMInet",
+        "recipe": "R4",
+        "residual": -0.27,
+        "lo": -0.72,
+        "hi": 0.17,
+        "tost90_lo": -0.63,
+        "tost90_hi": 0.09,
+        "equivalent": true
+      },
+      {
+        "architecture": "CSOANet-v2",
+        "recipe": "R1nc",
+        "residual": -0.4,
+        "lo": -1.03,
+        "hi": 0.23,
+        "tost90_lo": -0.91,
+        "tost90_hi": 0.11,
+        "equivalent": true
+      },
+      {
+        "architecture": "CSOANet-v2",
+        "recipe": "R2",
+        "residual": 0.99,
+        "lo": 0.51,
+        "hi": 1.46,
+        "tost90_lo": 0.6,
+        "tost90_hi": 1.37,
+        "equivalent": true
+      },
+      {
+        "architecture": "CSOANet-v2",
+        "recipe": "R4",
+        "residual": -0.58,
+        "lo": -1.12,
+        "hi": -0.05,
+        "tost90_lo": -1.02,
+        "tost90_hi": -0.15,
+        "equivalent": true
+      }
+    ]
+  },
+  "cho2017_replication": {
+    "EEGNet": {
+      "mean": 3.7126068376068386,
+      "lo": 2.6265938981469548,
+      "hi": 4.7986197770667225,
+      "lo_cluster": 2.1991455044516917,
+      "hi_cluster": 5.22660957535598,
+      "n": 52
+    },
+    "ShallowConvNet": {
+      "mean": 2.3530982905982905,
+      "lo": 1.466633334688073,
+      "hi": 3.239563246508508,
+      "lo_cluster": 1.089609732257893,
+      "hi_cluster": 3.614526470256691,
+      "n": 52
+    },
+    "MI-BMInet": {
+      "mean": 2.088141025641026,
+      "lo": 1.047505850277389,
+      "hi": 3.128776201004663,
+      "lo_cluster": -0.24917237394516256,
+      "hi_cluster": 4.43639440020488,
+      "n": 52
+    },
+    "CSOANet-v2": {
+      "mean": 0.006410256410256319,
+      "lo": -0.7667909485306382,
+      "hi": 0.7796114613511508,
+      "lo_cluster": -1.0781777903673389,
+      "hi_cluster": 1.090579960376156,
+      "n": 52
+    },
+    "DiD EEGNet-CSOANet-v2": {
+      "mean": 3.706196581196582,
+      "lo": 2.4261815933743005,
+      "hi": 4.986211569018863,
+      "lo_cluster": 1.9337750093782289,
+      "hi_cluster": 5.478704064634639,
+      "n": 52
+    }
+  },
+  "search_crop_share": {
+    "n_crop": 11,
+    "n": 24
+  }
+}
