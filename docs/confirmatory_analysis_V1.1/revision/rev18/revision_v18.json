@@ -1,0 +1,251 @@
+{
+  "cell_means": {
+    "CSOANet-v2|R1": 69.12,
+    "CSOANet-v2|R1ct": 70.17,
+    "CSOANet-v2|R1nc": 70.2,
+    "CSOANet-v2|R1ns": 69.81,
+    "CSOANet-v2|R2": 70.92,
+    "CSOANet-v2|R2va": 71.57,
+    "CSOANet-v2|R3": 59.27,
+    "CSOANet-v2|R4": 70.13,
+    "EEGNet|R1": 70.62,
+    "EEGNet|R1ct": 73.89,
+    "EEGNet|R1nc": 76.47,
+    "EEGNet|R1ns": 75.1,
+    "EEGNet|R2": 75.91,
+    "EEGNet|R2va": 77.37,
+    "EEGNet|R3": 76.57,
+    "EEGNet|R4": 76.82,
+    "MI-BMInet|R1": 73.24,
+    "MI-BMInet|R1ct": 74.85,
+    "MI-BMInet|R1nc": 76.98,
+    "MI-BMInet|R1ns": 75.5,
+    "MI-BMInet|R2": 76.09,
+    "MI-BMInet|R2va": 77.18,
+    "MI-BMInet|R3": 76.89,
+    "MI-BMInet|R4": 76.58,
+    "ShallowConvNet|R1": 69.83,
+    "ShallowConvNet|R1ct": 70.5,
+    "ShallowConvNet|R1nc": 73.81,
+    "ShallowConvNet|R1ns": 71.3,
+    "ShallowConvNet|R2": 71.86,
+    "ShallowConvNet|R2va": 74.43,
+    "ShallowConvNet|R3": 71.59,
+    "ShallowConvNet|R4": 74.37,
+    "ShallowConvNet-MN|R1": 74.74,
+    "ShallowConvNet-MN|R1nc": 79.0,
+    "ShallowConvNet-MN|R2": 75.34,
+    "ShallowConvNet-MN|R3": 83.32,
+    "ShallowConvNet-MN|R4": 75.37
+  },
+  "flagged_runs_rev6": 0,
+  "median_best_epoch": {
+    "CSOANet-v2|R1": 18.0,
+    "CSOANet-v2|R1ct": 24.5,
+    "CSOANet-v2|R1nc": 27.0,
+    "CSOANet-v2|R1ns": 20.0,
+    "CSOANet-v2|R2": 63.5,
+    "CSOANet-v2|R2va": 69.5,
+    "CSOANet-v2|R3": 62.5,
+    "CSOANet-v2|R4": 19.0,
+    "EEGNet|R1": 23.0,
+    "EEGNet|R1ct": 27.5,
+    "EEGNet|R1nc": 29.0,
+    "EEGNet|R1ns": 32.0,
+    "EEGNet|R2": 43.5,
+    "EEGNet|R2va": 58.5,
+    "EEGNet|R3": 60.0,
+    "EEGNet|R4": 27.0,
+    "MI-BMInet|R1": 39.0,
+    "MI-BMInet|R1ct": 30.0,
+    "MI-BMInet|R1nc": 33.0,
+    "MI-BMInet|R1ns": 34.0,
+    "MI-BMInet|R2": 20.0,
+    "MI-BMInet|R2va": 50.0,
+    "MI-BMInet|R3": 24.5,
+    "MI-BMInet|R4": 20.5,
+    "ShallowConvNet|R1": 18.0,
+    "ShallowConvNet|R1ct": 19.0,
+    "ShallowConvNet|R1nc": 23.0,
+    "ShallowConvNet|R1ns": 22.5,
+    "ShallowConvNet|R2": 6.5,
+    "ShallowConvNet|R2va": 35.5,
+    "ShallowConvNet|R3": 11.0,
+    "ShallowConvNet|R4": 16.5,
+    "ShallowConvNet-MN|R1": 14.0,
+    "ShallowConvNet-MN|R1nc": 36.0,
+    "ShallowConvNet-MN|R2": 64.0,
+    "ShallowConvNet-MN|R3": 95.0,
+    "ShallowConvNet-MN|R4": 21.0
+  },
+  "contrasts": {
+    "R1ct-R1 EEGNet": {
+      "mean": 3.28,
+      "lo": 2.24,
+      "hi": 4.34,
+      "p_wcr": 0.0004
+    },
+    "R1ns-R1 EEGNet": {
+      "mean": 4.48,
+      "lo": 3.16,
+      "hi": 5.88,
+      "p_wcr": 0.0005
+    },
+    "R1nc-R1ct EEGNet": {
+      "mean": 2.58,
+      "lo": 0.62,
+      "hi": 4.46,
+      "p_wcr": 0.0028
+    },
+    "R2va-R2 EEGNet": {
+      "mean": 1.47,
+      "lo": -0.46,
+      "hi": 3.45,
+      "p_wcr": 0.1402
+    },
+    "R1ct-R1 ShallowConvNet": {
+      "mean": 0.67,
+      "lo": -0.0,
+      "hi": 1.35,
+      "p_wcr": 0.0489
+    },
+    "R1ns-R1 ShallowConvNet": {
+      "mean": 1.47,
+      "lo": 0.94,
+      "hi": 1.99,
+      "p_wcr": 0.0005
+    },
+    "R1nc-R1ct ShallowConvNet": {
+      "mean": 3.31,
+      "lo": 1.69,
+      "hi": 4.88,
+      "p_wcr": 0.0003
+    },
+    "R2va-R2 ShallowConvNet": {
+      "mean": 2.57,
+      "lo": 0.73,
+      "hi": 4.42,
+      "p_wcr": 0.0077
+    },
+    "R1ct-R1 MI-BMInet": {
+      "mean": 1.61,
+      "lo": 0.37,
+      "hi": 2.82,
+      "p_wcr": 0.0195
+    },
+    "R1ns-R1 MI-BMInet": {
+      "mean": 2.26,
+      "lo": 1.17,
+      "hi": 3.36,
+      "p_wcr": 0.0004
+    },
+    "R1nc-R1ct MI-BMInet": {
+      "mean": 2.13,
+      "lo": 0.5,
+      "hi": 3.71,
+      "p_wcr": 0.0138
+    },
+    "R2va-R2 MI-BMInet": {
+      "mean": 1.09,
+      "lo": -0.1,
+      "hi": 2.3,
+      "p_wcr": 0.0895
+    },
+    "R1ct-R1 CSOANet-v2": {
+      "mean": 1.05,
+      "lo": 0.04,
+      "hi": 2.06,
+      "p_wcr": 0.0476
+    },
+    "R1ns-R1 CSOANet-v2": {
+      "mean": 0.69,
+      "lo": -0.68,
+      "hi": 2.03,
+      "p_wcr": 0.2943
+    },
+    "R1nc-R1ct CSOANet-v2": {
+      "mean": 0.03,
+      "lo": -0.46,
+      "hi": 0.52,
+      "p_wcr": 0.926
+    },
+    "R2va-R2 CSOANet-v2": {
+      "mean": 0.66,
+      "lo": -0.25,
+      "hi": 1.54,
+      "p_wcr": 0.1266
+    },
+    "gap EEGNet-CSOANet-v2: R1ct vs R1": {
+      "mean": 2.23,
+      "lo": 0.56,
+      "hi": 3.88,
+      "p_wcr": 0.0129
+    },
+    "gap EEGNet-CSOANet-v2: R1nc vs R1ct": {
+      "mean": 2.55,
+      "lo": 0.77,
+      "hi": 4.27,
+      "p_wcr": 0.0046
+    },
+    "gap EEGNet-CSOANet-v2: R1ns vs R1": {
+      "mean": 3.8,
+      "lo": 1.77,
+      "hi": 5.85,
+      "p_wcr": 0.0008
+    },
+    "ShallowConvNet-CSOANet-v2: R4 vs R2": {
+      "mean": 3.3,
+      "lo": 2.04,
+      "hi": 4.52,
+      "p_wcr": 0.0008
+    },
+    "ShallowConvNet-CSOANet-v2: R4 vs R2va": {
+      "mean": 1.38,
+      "lo": -0.13,
+      "hi": 2.85,
+      "p_wcr": 0.0728
+    },
+    "ShallowConvNet-MN-CSOANet-v2: R4 vs R2": {
+      "mean": 0.82,
+      "lo": -0.74,
+      "hi": 2.34,
+      "p_wcr": 0.2357
+    },
+    "ShallowConvNet-MI-BMInet: R4 vs R2": {
+      "mean": 2.01,
+      "lo": 0.92,
+      "hi": 3.09,
+      "p_wcr": 0.0009
+    },
+    "ShallowConvNet-MI-BMInet: R4 vs R2va": {
+      "mean": 0.53,
+      "lo": -0.63,
+      "hi": 1.65,
+      "p_wcr": 0.3074
+    },
+    "ShallowConvNet-MN-MI-BMInet: R4 vs R2": {
+      "mean": -0.46,
+      "lo": -1.75,
+      "hi": 0.83,
+      "p_wcr": 0.4088
+    },
+    "ShallowConvNet-MN - ShallowConvNet under R2": {
+      "mean": 3.48,
+      "lo": 2.0,
+      "hi": 5.04,
+      "p_wcr": 0.0005
+    },
+    "ShallowConvNet-MN - ShallowConvNet under R4": {
+      "mean": 1.01,
+      "lo": 0.35,
+      "hi": 1.66,
+      "p_wcr": 0.0078
+    },
+    "gap EEGNet-CSOANet-v2: R2va vs R1nc": {
+      "mean": -0.48,
+      "lo": -2.38,
+      "hi": 1.46,
+      "p_wcr": 0.6845
+    }
+  }
+}
