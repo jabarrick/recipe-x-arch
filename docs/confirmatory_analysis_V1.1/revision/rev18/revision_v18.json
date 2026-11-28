@@ -32,10 +32,10 @@
     "ShallowConvNet|R2va": 74.43,
     "ShallowConvNet|R3": 71.59,
     "ShallowConvNet|R4": 74.37,
-    "ShallowConvNet-MN|R1": 74.74,
-    "ShallowConvNet-MN|R1nc": 79.0,
+    "ShallowConvNet-MN|R1": 69.73,
+    "ShallowConvNet-MN|R1nc": 73.6,
     "ShallowConvNet-MN|R2": 75.34,
-    "ShallowConvNet-MN|R3": 83.32,
+    "ShallowConvNet-MN|R3": 75.99,
     "ShallowConvNet-MN|R4": 75.37
   },
   "flagged_runs_rev6": 0,
@@ -72,10 +72,10 @@
     "ShallowConvNet|R2va": 35.5,
     "ShallowConvNet|R3": 11.0,
     "ShallowConvNet|R4": 16.5,
-    "ShallowConvNet-MN|R1": 14.0,
-    "ShallowConvNet-MN|R1nc": 36.0,
+    "ShallowConvNet-MN|R1": 16.5,
+    "ShallowConvNet-MN|R1nc": 22.0,
     "ShallowConvNet-MN|R2": 64.0,
-    "ShallowConvNet-MN|R3": 95.0,
+    "ShallowConvNet-MN|R3": 91.5,
     "ShallowConvNet-MN|R4": 21.0
   },
   "contrasts": {
@@ -241,11 +241,66 @@
       "hi": 1.66,
       "p_wcr": 0.0078
     },
+    "ShallowConvNet-MN - ShallowConvNet under R1": {
+      "mean": -0.1,
+      "lo": -0.65,
+      "hi": 0.47,
+      "p_wcr": 0.7005
+    },
+    "ShallowConvNet-MN - ShallowConvNet under R1nc": {
+      "mean": -0.2,
+      "lo": -0.9,
+      "hi": 0.49,
+      "p_wcr": 0.5045
+    },
+    "ShallowConvNet-MN - ShallowConvNet under R3": {
+      "mean": 4.39,
+      "lo": 2.58,
+      "hi": 6.23,
+      "p_wcr": 0.0007
+    },
+    "ShallowConvNet-MN: R1nc - R1": {
+      "mean": 3.88,
+      "lo": 2.82,
+      "hi": 4.93,
+      "p_wcr": 0.0007
+    },
+    "ShallowConvNet-CSOANet-v2: R4 vs R3": {
+      "mean": -8.09,
+      "lo": -12.35,
+      "hi": -3.78,
+      "p_wcr": 0.0068
+    },
+    "ShallowConvNet-MN-CSOANet-v2: R4 vs R3": {
+      "mean": -11.47,
+      "lo": -15.61,
+      "hi": -7.3,
+      "p_wcr": 0.0006
+    },
+    "ShallowConvNet-MI-BMInet: R4 vs R3": {
+      "mean": 3.09,
+      "lo": 0.78,
+      "hi": 5.3,
+      "p_wcr": 0.0181
+    },
+    "ShallowConvNet-MN-MI-BMInet: R4 vs R3": {
+      "mean": -0.3,
+      "lo": -1.89,
+      "hi": 1.31,
+      "p_wcr": 0.6652
+    },
     "gap EEGNet-CSOANet-v2: R2va vs R1nc": {
       "mean": -0.48,
-      "lo": -2.38,
-      "hi": 1.46,
-      "p_wcr": 0.6845
+      "lo": -2.39,
+      "hi": 1.47,
+      "p_wcr": 0.6935
     }
+  },
+  "flagged_runs_R3": {
+    "CSOANet-v2": 11,
+    "EEGNet": 0,
+    "MI-BMInet": 0,
+    "ShallowConvNet": 30,
+    "ShallowConvNet-MN": 0
   }
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Follow-up runs requested by the sixth review (post hoc; S4 row 21): R1ct, R1ns, R2va, ShallowConvNet-MN.
+"""Follow-up runs requested by the sixth review (post hoc; S4 rows 21-22): R1ct, R1ns, R2va, ShallowConvNet-MN.
 Contrasts per subject (percentage points), wild cluster bootstrap (Webb, 9,999 draws, 10 dataset x fold clusters).
 Usage: python -m analysis.revision_v18 --res results/confirmatory --nc docs/exploratory_r1nocrop --rev6 results/exploratory_rev6 --out <dir>
 """
@@ -44,6 +44,14 @@ def main():
         C[f"ShallowConvNet-MN-{b}: R4 vs R2"] = W(g("ShallowConvNet-MN", b, "R4") - g("ShallowConvNet-MN", b, "R2"))
     for r in ("R2", "R4"):
         C[f"ShallowConvNet-MN - ShallowConvNet under {r}"] = W(w[("ShallowConvNet-MN", r)] - w[("ShallowConvNet", r)])
+    S = "ShallowConvNet-MN"
+    for r in ("R1", "R1nc", "R3"):
+        C[f"ShallowConvNet-MN - ShallowConvNet under {r}"] = W(w[(S, r)] - w[("ShallowConvNet", r)])
+    C["ShallowConvNet-MN: R1nc - R1"] = W(w[(S, "R1nc")] - w[(S, "R1")])
+    for b in ("CSOANet-v2", "MI-BMInet"):
+        C[f"ShallowConvNet-{b}: R4 vs R3"] = W(g("ShallowConvNet", b, "R4") - g("ShallowConvNet", b, "R3"))
+        C[f"ShallowConvNet-MN-{b}: R4 vs R3"] = W(g(S, b, "R4") - g(S, b, "R3"))
+    V["flagged_runs_R3"] = {k: int(v) for k, v in runs[runs.recipe == "R3"].groupby("architecture").training_failure.sum().items()}
     C["gap EEGNet-CSOANet-v2: R2va vs R1nc"] = W(g("EEGNet", "CSOANet-v2", "R2va") - g("EEGNet", "CSOANet-v2", "R1nc"))
     json.dump(V, open(f"{o.out}/revision_v18.json", "w"), indent=2)
     print(json.dumps(C, indent=1))
