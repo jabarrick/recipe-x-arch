@@ -1,26 +1,38 @@
 #!/usr/bin/env python3
-"""Preregistered analysis for the independent test (OSF 8st47, Amendment 3). Frozen before download.
+"""Preregistered analysis for the independent test (OSF 8st47, Amendment 3, V1.1). Frozen before download.
 
 Input: <res>/IND_long.csv from train/independent_dreyer.py.
 Unit: per-subject seed-averaged float32 balanced accuracy. Cluster: test fold (10 clusters).
-Contrasts (per subject, percentage points):
+
+Primary hypothesis (one test, alpha = 0.05):
   HA  crop effect on the gap   d_A = (EEGNet - CSOANet-v2)[R1nc] - (EEGNet - CSOANet-v2)[R1]      predicted > 0
-  HB  R2 interaction           d_B = (ShallowConvNet - CSOANet-v2)[R1nc] - (ShallowConvNet - CSOANet-v2)[R2]  predicted > 0
-Test: mean of d with a cluster-robust (CR1) t statistic; p from a wild cluster bootstrap with the
-null imposed (Webb six-point weights, 9,999 draws, seed 20261126); two-sided; Holm over {HA, HB} at 0.05.
-Supported: Holm-adjusted p < 0.05 and mean > 0. Contradicted: Holm-adjusted p < 0.05 and mean < 0.
-Otherwise inconclusive; if the 90 % bootstrap-t CI lies within (-2, 2) the effect is reported as
-smaller than the SESOI.
-Secondary (descriptive, no decision): R1nc - R1 per architecture; the same contrasts with R2va in
-place of R2; the same on the empirical-logit scale.
+  Test: mean of d_A with a cluster-robust (CR1) t statistic; p from a wild cluster bootstrap with the null
+  imposed (Webb six-point weights, 9,999 draws, seed 20261126), two-sided.
+  Supported: p < 0.05 and mean > 0. Contradicted: p < 0.05 and mean < 0. Otherwise inconclusive; if the
+  90 % bootstrap-t CI lies within (-2, 2) the effect is reported as smaller than the SESOI.
+
+Secondary (pre-specified, reported, no decision), on the corrected design {R1nc, R2, R4} x
+{EEGNet, ShallowConvNet-MN, MI-BMInet, CSOANet-v2}:
+  S1  recipe main effect and recipe x architecture interaction: likelihood-ratio tests with crossed random
+      effects for subject and training run (fold x architecture x recipe), ML, best converged fit over four
+      optimisers; percentage and empirical-logit scales. Expectation from F1: neither significant.
+  S2  pairwise categories as registered for H3 (Bonferroni over 6 pairs x 3 recipes, SESOI 2 points) and the
+      number of definitive category changes. Expectation from F1: none.
+  S3  R1nc - R1 per architecture; HA on the empirical-logit scale; number of flagged runs.
 Usage: python -m analysis.independent_analysis --res results/independent --out docs/independent
 """
 from __future__ import annotations
-import argparse, json, os
+import argparse, json, os, warnings
 import numpy as np, pandas as pd
+from scipy import stats
+import statsmodels.formula.api as smf
+from . import h3_classify as H3
 
+warnings.filterwarnings("ignore")
 WEBB = np.array([-np.sqrt(1.5), -1, -np.sqrt(.5), np.sqrt(.5), 1, np.sqrt(1.5)])
 B = 9999
+ARCHS = ["EEGNet", "ShallowConvNet-MN", "MI-BMInet", "CSOANet-v2"]
+CORR = ["R1nc", "R2", "R4"]
 
 
 def cr1(x, cl):
@@ -44,6 +56,30 @@ def test(x, cl, rng):
                 n_subjects=int(len(x)), n_clusters=int(G))
 
 
+def fit_best(formula, d):
+    d = d.reset_index(drop=True).copy(); d["one"] = 1; best = None
+    for meth in (["bfgs"], ["nm", "lbfgs"], ["powell"], ["lbfgs"]):
+        try:
+            r = smf.mixedlm(formula, d, groups=d["one"], vc_formula={"s": "0 + C(subject)", "r": "0 + C(run)"},
+                            re_formula="0").fit(reml=False, method=meth, maxiter=5000)
+        except Exception:
+            continue
+        if r.converged and (best is None or r.llf > best.llf):
+            best = r
+    return best
+
+
+def omnibus(d, yvar):
+    d = d.copy(); d["yv"] = d[yvar]; k = d.recipe.nunique()
+    full = fit_best("yv ~ C(architecture, Sum) * C(recipe, Sum)", d)
+    noi = fit_best("yv ~ C(architecture, Sum) + C(recipe, Sum)", d)
+    nor = fit_best("yv ~ C(architecture, Sum)", d)
+    if None in (full, noi, nor):
+        return dict(error="no converged fit")
+    L = lambda a, b, df: dict(chi2=float(2 * (a.llf - b.llf)), df=df, p=float(stats.chi2.sf(max(2 * (a.llf - b.llf), 0), df)))
+    return dict(recipe=L(noi, nor, k - 1), interaction=L(full, noi, 3 * (k - 1)))
+
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--res", required=True); ap.add_argument("--out", required=True)
     ap.add_argument("--unit", default="IND"); o = ap.parse_args(); os.makedirs(o.out, exist_ok=True)
@@ -58,28 +94,29 @@ def main():
         w = a.pivot_table(index="subject", columns=["architecture", "recipe"], values=scale)
         cl = a.drop_duplicates("subject").set_index("subject").fold.reindex(w.index).to_numpy()
         gap = lambda p, q, r: w[(p, r)] - w[(q, r)]
-        C = {"HA": (gap("EEGNet", "CSOANet-v2", "R1nc") - gap("EEGNet", "CSOANet-v2", "R1")).to_numpy(),
-             "HB": (gap("ShallowConvNet", "CSOANet-v2", "R1nc") - gap("ShallowConvNet", "CSOANet-v2", "R2")).to_numpy()}
-        if ("ShallowConvNet", "R2va") in w:
-            C["HB_with_R2va"] = (gap("ShallowConvNet", "CSOANet-v2", "R1nc") - gap("ShallowConvNet", "CSOANet-v2", "R2va")).to_numpy()
-        for arch in ("EEGNet", "ShallowConvNet", "MI-BMInet", "CSOANet-v2"):
+        C = {"HA": (gap("EEGNet", "CSOANet-v2", "R1nc") - gap("EEGNet", "CSOANet-v2", "R1")).to_numpy()}
+        for arch in ARCHS:
             C[f"R1nc-R1 {arch}"] = (w[(arch, "R1nc")] - w[(arch, "R1")]).to_numpy()
         V[scale] = {k: test(v, cl, rng) for k, v in C.items()}
-    # Holm over the two registered hypotheses (percentage scale)
-    ps = sorted((V["y"][h]["p"], h) for h in ("HA", "HB"))
-    adj = {}; run = 0.0
-    for i, (p, h) in enumerate(ps):
-        run = max(run, min(1.0, p * (2 - i))); adj[h] = run
-    V["decision"] = {}
-    for h in ("HA", "HB"):
-        r = V["y"][h]; pa = adj[h]
-        if pa < .05 and r["mean"] > 0: dec = "supported"
-        elif pa < .05 and r["mean"] < 0: dec = "contradicted"
-        elif -2 < r["ci90"][0] and r["ci90"][1] < 2: dec = "inconclusive; effect smaller than the 2-point SESOI"
-        else: dec = "inconclusive"
-        V["decision"][h] = dict(p_holm=pa, decision=dec)
-    json.dump(V, open(f"{o.out}/independent_results.json", "w"), indent=2)
-    print(json.dumps(V["decision"], indent=1))
+    r = V["y"]["HA"]
+    if r["p"] < .05 and r["mean"] > 0: dec = "supported"
+    elif r["p"] < .05 and r["mean"] < 0: dec = "contradicted"
+    elif -2 < r["ci90"][0] and r["ci90"][1] < 2: dec = "inconclusive; effect smaller than the 2-point SESOI"
+    else: dec = "inconclusive"
+    V["decision"] = {"HA": dec}
+    # secondary: corrected design {R1nc, R2, R4}
+    c = a[a.recipe.isin(CORR) & a.architecture.isin(ARCHS)].copy()
+    c["run"] = c.fold.astype(str) + ":" + c.architecture + ":" + c.recipe
+    V["S1_omnibus"] = {"percentage": omnibus(c, "y"), "logit": omnibus(c, "yl")}
+    w = c.pivot_table(index="subject", columns=["architecture", "recipe"], values="y")
+    # positional: H3 labels index 1 as "ShallowConvNet"; here it is ShallowConvNet-MN
+    cube = np.array([[w[(ar, r)].to_numpy() for r in CORR] for ar in ARCHS]).transpose(2, 0, 1)
+    h3 = H3.run(cube, recipes=CORR)
+    V["S2_categories"] = {k: h3[k] for k in ("outcome", "n_definitive", "n_intervals", "sign_reversals",
+                                             "equiv_better_changes", "inconclusive_definitive_changes")}
+    V["S2_categories"]["matrix"] = h3["category_matrix"].to_dict()
+    json.dump(V, open(f"{o.out}/independent_results.json", "w"), indent=2, default=str)
+    print(json.dumps({"HA": V["decision"]["HA"], "S1": V["S1_omnibus"], "S2": V["S2_categories"]["outcome"]}, indent=1, default=str))
 
 
 if __name__ == "__main__":

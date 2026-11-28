@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
-"""Independent preregistered test (OSF 8st47, Amendment 3): Dreyer2023 (MOABB 1.7.2), left vs right hand MI.
+"""Independent preregistered test (OSF 8st47, Amendment 3, V1.1): Dreyer2023 (MOABB 1.7.2), left vs right hand MI.
 
 Frozen together with analysis/independent_analysis.py BEFORE the dataset is downloaded.
 Uses the frozen confirmatory driver unchanged, with:
   - unit "IND" = Dreyer2023, cross-subject, 10 folds (split seed 0), 10 % validation subjects;
   - nominal 240 trials per subject for the registered 80 % exclusion rule;
-  - recipes R1, R1nc (R1 without cropping) and R2, plus R2va (R2 with the highest-validation-accuracy
-    checkpoint over all epochs; secondary);
+  - architectures EEGNet, ShallowConvNet-MN (with the reference max-norm constraints), MI-BMInet, CSOANet-v2;
+  - recipes R1, R1nc (R1 without cropping), R2 and R4;
   - every trained model saved under <out>/models/.
 Dry run before download (pilot cache, no confirmatory data):
   python -m train.independent_dreyer --csoanet-root ..\\csoanet2026_v2_deploy --unit IND --out results\\ind_dryrun ^
-         --pilot-dryrun --max-subjects 20 --epochs 2 --archs EEGNet CSOANet-v2 --recipes R1 R1nc R2 R2va
+         --pilot-dryrun --max-subjects 20 --epochs 2 --archs EEGNet ShallowConvNet-MN MI-BMInet CSOANet-v2 --recipes R1 R1nc R2 R4
 Confirmatory run:
   python -m train.independent_dreyer --csoanet-root ..\\csoanet2026_v2_deploy --unit IND --out results\\independent ^
-         --archs EEGNet ShallowConvNet MI-BMInet CSOANet-v2 --recipes R1 R1nc R2 R2va
+         --archs EEGNet ShallowConvNet-MN MI-BMInet CSOANet-v2 --recipes R1 R1nc R2 R4
 """
 import numpy as np
-from train import explore_rev6 as E          # registers R1nc / R2va, model saving, cache redirect
+from train import explore_rev6 as E          # registers R1nc and ShallowConvNet-MN, model saving, cache redirect
 from train import confirmatory as K
 
 N_FOLDS = 10
