@@ -1,0 +1,838 @@
+{
+  "registered": {
+    "cell_means": {
+      "EEGNet|R1": 70.62,
+      "EEGNet|R2": 75.91,
+      "EEGNet|R3": 76.57,
+      "EEGNet|R4": 76.82,
+      "ShallowConvNet|R1": 69.83,
+      "ShallowConvNet|R2": 71.86,
+      "ShallowConvNet|R3": 71.59,
+      "ShallowConvNet|R4": 74.37,
+      "MI-BMInet|R1": 73.24,
+      "MI-BMInet|R2": 76.09,
+      "MI-BMInet|R3": 76.89,
+      "MI-BMInet|R4": 76.58,
+      "CSOANet-v2|R1": 69.12,
+      "CSOANet-v2|R2": 70.92,
+      "CSOANet-v2|R3": 59.27,
+      "CSOANet-v2|R4": 70.13
+    },
+    "omnibus_pct": {
+      "H1": {
+        "chi2": 29.1,
+        "df": 3,
+        "p": 0.0
+      },
+      "H2": {
+        "chi2": 95.33,
+        "df": 9,
+        "p": 0.0
+      }
+    },
+    "omnibus_logit": {
+      "H1": {
+        "chi2": 31.88,
+        "df": 3,
+        "p": 0.0
+      },
+      "H2": {
+        "chi2": 75.43,
+        "df": 9,
+        "p": 0.0
+      }
+    },
+    "H2b": {
+      "mean": 3.5,
+      "lo": 1.38,
+      "hi": 5.61,
+      "p": 0.0018
+    },
+    "H2b_logit": {
+      "mean": 0.22,
+      "lo": 0.11,
+      "hi": 0.33,
+      "p": 0.0015
+    },
+    "H3": {
+      "outcome": "A'",
+      "n_definitive": 20,
+      "n_intervals": 24,
+      "sign_reversals": 0,
+      "equiv_better_changes": 3,
+      "inconclusive_definitive_changes": 10,
+      "categories": {
+        "R1": {
+          "EEGNet - CSOANet-v2": "I",
+          "EEGNet - MI-BMInet": "B",
+          "EEGNet - ShallowConvNet": "I",
+          "MI-BMInet - CSOANet-v2": "A",
+          "ShallowConvNet - CSOANet-v2": "I",
+          "ShallowConvNet - MI-BMInet": "B"
+        },
+        "R2": {
+          "EEGNet - CSOANet-v2": "A",
+          "EEGNet - MI-BMInet": "E",
+          "EEGNet - ShallowConvNet": "A",
+          "MI-BMInet - CSOANet-v2": "A",
+          "ShallowConvNet - CSOANet-v2": "I",
+          "ShallowConvNet - MI-BMInet": "B"
+        },
+        "R3": {
+          "EEGNet - CSOANet-v2": "A",
+          "EEGNet - MI-BMInet": "E",
+          "EEGNet - ShallowConvNet": "A",
+          "MI-BMInet - CSOANet-v2": "A",
+          "ShallowConvNet - CSOANet-v2": "A",
+          "ShallowConvNet - MI-BMInet": "B"
+        },
+        "R4": {
+          "EEGNet - CSOANet-v2": "A",
+          "EEGNet - MI-BMInet": "E",
+          "EEGNet - ShallowConvNet": "A",
+          "MI-BMInet - CSOANet-v2": "A",
+          "ShallowConvNet - CSOANet-v2": "A",
+          "ShallowConvNet - MI-BMInet": "B"
+        }
+      },
+      "means": {
+        "EEGNet - ShallowConvNet|R1": 0.79,
+        "EEGNet - ShallowConvNet|R2": 4.05,
+        "EEGNet - ShallowConvNet|R3": 4.98,
+        "EEGNet - ShallowConvNet|R4": 2.46,
+        "EEGNet - MI-BMInet|R1": -2.62,
+        "EEGNet - MI-BMInet|R2": -0.18,
+        "EEGNet - MI-BMInet|R3": -0.33,
+        "EEGNet - MI-BMInet|R4": 0.25,
+        "EEGNet - CSOANet-v2|R1": 1.49,
+        "EEGNet - CSOANet-v2|R2": 4.99,
+        "EEGNet - CSOANet-v2|R3": 17.3,
+        "EEGNet - CSOANet-v2|R4": 6.7,
+        "ShallowConvNet - MI-BMInet|R1": -3.41,
+        "ShallowConvNet - MI-BMInet|R2": -4.23,
+        "ShallowConvNet - MI-BMInet|R3": -5.3,
+        "ShallowConvNet - MI-BMInet|R4": -2.21,
+        "ShallowConvNet - CSOANet-v2|R1": 0.7,
+        "ShallowConvNet - CSOANet-v2|R2": 0.94,
+        "ShallowConvNet - CSOANet-v2|R3": 12.33,
+        "ShallowConvNet - CSOANet-v2|R4": 4.24,
+        "MI-BMInet - CSOANet-v2|R1": 4.12,
+        "MI-BMInet - CSOANet-v2|R2": 5.17,
+        "MI-BMInet - CSOANet-v2|R3": 17.63,
+        "MI-BMInet - CSOANet-v2|R4": 6.45
+      }
+    },
+    "home_residual": {
+      "EEGNet": {
+        "mean": -0.28,
+        "lo": -0.88,
+        "hi": 0.31,
+        "p": 0.3062
+      },
+      "MI-BMInet": {
+        "mean": 2.6,
+        "lo": 1.37,
+        "hi": 3.85,
+        "p": 0.0005
+      },
+      "CSOANet-v2": {
+        "mean": 3.55,
+        "lo": 2.41,
+        "hi": 4.67,
+        "p": 0.0002
+      }
+    },
+    "all_residuals": {
+      "EEGNet|R1": -2.58,
+      "EEGNet|R2": -0.28,
+      "EEGNet|R3": 3.0,
+      "EEGNet|R4": -0.14,
+      "ShallowConvNet|R1": -0.3,
+      "ShallowConvNet|R2": -1.26,
+      "ShallowConvNet|R3": 1.09,
+      "ShallowConvNet|R4": 0.47,
+      "MI-BMInet|R1": -0.68,
+      "MI-BMInet|R2": -0.82,
+      "MI-BMInet|R3": 2.6,
+      "MI-BMInet|R4": -1.11,
+      "CSOANet-v2|R1": 3.55,
+      "CSOANet-v2|R2": 2.35,
+      "CSOANet-v2|R3": -6.69,
+      "CSOANet-v2|R4": 0.78
+    }
+  },
+  "corrected": {
+    "cell_means": {
+      "EEGNet|R1": 76.47,
+      "EEGNet|R2": 75.91,
+      "EEGNet|R3": 76.57,
+      "EEGNet|R4": 76.82,
+      "ShallowConvNet|R1": 73.6,
+      "ShallowConvNet|R2": 75.34,
+      "ShallowConvNet|R3": 75.99,
+      "ShallowConvNet|R4": 75.37,
+      "MI-BMInet|R1": 76.98,
+      "MI-BMInet|R2": 76.09,
+      "MI-BMInet|R3": 76.89,
+      "MI-BMInet|R4": 76.58,
+      "CSOANet-v2|R1": 70.2,
+      "CSOANet-v2|R2": 70.92,
+      "CSOANet-v2|R3": 59.27,
+      "CSOANet-v2|R4": 70.13
+    },
+    "omnibus_pct": {
+      "H1": {
+        "chi2": 14.59,
+        "df": 3,
+        "p": 0.0022
+      },
+      "H2": {
+        "chi2": 99.47,
+        "df": 9,
+        "p": 0.0
+      }
+    },
+    "omnibus_logit": {
+      "H1": {
+        "chi2": 11.09,
+        "df": 3,
+        "p": 0.0113
+      },
+      "H2": {
+        "chi2": 74.36,
+        "df": 9,
+        "p": 0.0
+      }
+    },
+    "H2b": {
+      "mean": -1.29,
+      "lo": -2.23,
+      "hi": -0.32,
+      "p": 0.0152
+    },
+    "H2b_logit": {
+      "mean": -0.04,
+      "lo": -0.12,
+      "hi": 0.05,
+      "p": 0.3432
+    },
+    "H3": {
+      "outcome": "B1",
+      "n_definitive": 18,
+      "n_intervals": 24,
+      "sign_reversals": 0,
+      "equiv_better_changes": 0,
+      "inconclusive_definitive_changes": 6,
+      "categories": {
+        "R1": {
+          "EEGNet - CSOANet-v2": "A",
+          "EEGNet - MI-BMInet": "E",
+          "EEGNet - ShallowConvNet": "A",
+          "MI-BMInet - CSOANet-v2": "A",
+          "ShallowConvNet - CSOANet-v2": "A",
+          "ShallowConvNet - MI-BMInet": "B"
+        },
+        "R2": {
+          "EEGNet - CSOANet-v2": "A",
+          "EEGNet - MI-BMInet": "E",
+          "EEGNet - ShallowConvNet": "I",
+          "MI-BMInet - CSOANet-v2": "A",
+          "ShallowConvNet - CSOANet-v2": "A",
+          "ShallowConvNet - MI-BMInet": "I"
+        },
+        "R3": {
+          "EEGNet - CSOANet-v2": "A",
+          "EEGNet - MI-BMInet": "E",
+          "EEGNet - ShallowConvNet": "I",
+          "MI-BMInet - CSOANet-v2": "A",
+          "ShallowConvNet - CSOANet-v2": "A",
+          "ShallowConvNet - MI-BMInet": "I"
+        },
+        "R4": {
+          "EEGNet - CSOANet-v2": "A",
+          "EEGNet - MI-BMInet": "E",
+          "EEGNet - ShallowConvNet": "I",
+          "MI-BMInet - CSOANet-v2": "A",
+          "ShallowConvNet - CSOANet-v2": "A",
+          "ShallowConvNet - MI-BMInet": "I"
+        }
+      },
+      "means": {
+        "EEGNet - ShallowConvNet|R1": 2.87,
+        "EEGNet - ShallowConvNet|R2": 0.56,
+        "EEGNet - ShallowConvNet|R3": 0.58,
+        "EEGNet - ShallowConvNet|R4": 1.45,
+        "EEGNet - MI-BMInet|R1": -0.5,
+        "EEGNet - MI-BMInet|R2": -0.18,
+        "EEGNet - MI-BMInet|R3": -0.33,
+        "EEGNet - MI-BMInet|R4": 0.25,
+        "EEGNet - CSOANet-v2|R1": 6.28,
+        "EEGNet - CSOANet-v2|R2": 4.99,
+        "EEGNet - CSOANet-v2|R3": 17.3,
+        "EEGNet - CSOANet-v2|R4": 6.7,
+        "ShallowConvNet - MI-BMInet|R1": -3.37,
+        "ShallowConvNet - MI-BMInet|R2": -0.74,
+        "ShallowConvNet - MI-BMInet|R3": -0.91,
+        "ShallowConvNet - MI-BMInet|R4": -1.21,
+        "ShallowConvNet - CSOANet-v2|R1": 3.41,
+        "ShallowConvNet - CSOANet-v2|R2": 4.43,
+        "ShallowConvNet - CSOANet-v2|R3": 16.72,
+        "ShallowConvNet - CSOANet-v2|R4": 5.25,
+        "MI-BMInet - CSOANet-v2|R1": 6.78,
+        "MI-BMInet - CSOANet-v2|R2": 5.17,
+        "MI-BMInet - CSOANet-v2|R3": 17.63,
+        "MI-BMInet - CSOANet-v2|R4": 6.45
+      }
+    },
+    "home_residual": {
+      "EEGNet": {
+        "mean": -1.15,
+        "lo": -1.63,
+        "hi": -0.69,
+        "p": 0.0024
+      },
+      "MI-BMInet": {
+        "mean": 2.03,
+        "lo": 0.91,
+        "hi": 3.15,
+        "p": 0.0045
+      },
+      "CSOANet-v2": {
+        "mean": 2.2,
+        "lo": 1.15,
+        "hi": 3.29,
+        "p": 0.0002
+      }
+    },
+    "all_residuals": {
+      "EEGNet|R1": -0.34,
+      "EEGNet|R2": -1.15,
+      "EEGNet|R3": 1.89,
+      "EEGNet|R4": -0.4,
+      "ShallowConvNet|R1": -1.84,
+      "ShallowConvNet|R2": -0.35,
+      "ShallowConvNet|R3": 2.68,
+      "ShallowConvNet|R4": -0.48,
+      "MI-BMInet|R1": -0.03,
+      "MI-BMInet|R2": -1.17,
+      "MI-BMInet|R3": 2.03,
+      "MI-BMInet|R4": -0.84,
+      "CSOANet-v2|R1": 2.2,
+      "CSOANet-v2|R2": 2.67,
+      "CSOANet-v2|R3": -6.59,
+      "CSOANet-v2|R4": 1.72
+    }
+  },
+  "corrected_noR3": {
+    "cell_means": {
+      "EEGNet|R1": 76.47,
+      "EEGNet|R2": 75.91,
+      "EEGNet|R4": 76.82,
+      "ShallowConvNet|R1": 73.6,
+      "ShallowConvNet|R2": 75.34,
+      "ShallowConvNet|R4": 75.37,
+      "MI-BMInet|R1": 76.98,
+      "MI-BMInet|R2": 76.09,
+      "MI-BMInet|R4": 76.58,
+      "CSOANet-v2|R1": 70.2,
+      "CSOANet-v2|R2": 70.92,
+      "CSOANet-v2|R4": 70.13
+    },
+    "omnibus_pct": {
+      "H1": {
+        "chi2": 1.09,
+        "df": 2,
+        "p": 0.5787
+      },
+      "H2": {
+        "chi2": 10.24,
+        "df": 6,
+        "p": 0.1149
+      }
+    },
+    "omnibus_logit": {
+      "H1": {
+        "chi2": 1.96,
+        "df": 2,
+        "p": 0.3755
+      },
+      "H2": {
+        "chi2": 8.21,
+        "df": 6,
+        "p": 0.2229
+      }
+    },
+    "H2b": {
+      "mean": -1.29,
+      "lo": -2.23,
+      "hi": -0.32,
+      "p": 0.0152
+    },
+    "H2b_logit": {
+      "mean": -0.04,
+      "lo": -0.12,
+      "hi": 0.05,
+      "p": 0.3432
+    },
+    "H3": {
+      "outcome": "B1",
+      "n_definitive": 14,
+      "n_intervals": 18,
+      "sign_reversals": 0,
+      "equiv_better_changes": 0,
+      "inconclusive_definitive_changes": 4,
+      "categories": {
+        "R1": {
+          "EEGNet - CSOANet-v2": "A",
+          "EEGNet - MI-BMInet": "E",
+          "EEGNet - ShallowConvNet": "A",
+          "MI-BMInet - CSOANet-v2": "A",
+          "ShallowConvNet - CSOANet-v2": "A",
+          "ShallowConvNet - MI-BMInet": "B"
+        },
+        "R2": {
+          "EEGNet - CSOANet-v2": "A",
+          "EEGNet - MI-BMInet": "E",
+          "EEGNet - ShallowConvNet": "I",
+          "MI-BMInet - CSOANet-v2": "A",
+          "ShallowConvNet - CSOANet-v2": "A",
+          "ShallowConvNet - MI-BMInet": "I"
+        },
+        "R4": {
+          "EEGNet - CSOANet-v2": "A",
+          "EEGNet - MI-BMInet": "E",
+          "EEGNet - ShallowConvNet": "I",
+          "MI-BMInet - CSOANet-v2": "A",
+          "ShallowConvNet - CSOANet-v2": "A",
+          "ShallowConvNet - MI-BMInet": "I"
+        }
+      },
+      "means": {
+        "EEGNet - ShallowConvNet|R1": 2.87,
+        "EEGNet - ShallowConvNet|R2": 0.56,
+        "EEGNet - ShallowConvNet|R4": 1.45,
+        "EEGNet - MI-BMInet|R1": -0.5,
+        "EEGNet - MI-BMInet|R2": -0.18,
+        "EEGNet - MI-BMInet|R4": 0.25,
+        "EEGNet - CSOANet-v2|R1": 6.28,
+        "EEGNet - CSOANet-v2|R2": 4.99,
+        "EEGNet - CSOANet-v2|R4": 6.7,
+        "ShallowConvNet - MI-BMInet|R1": -3.37,
+        "ShallowConvNet - MI-BMInet|R2": -0.74,
+        "ShallowConvNet - MI-BMInet|R4": -1.21,
+        "ShallowConvNet - CSOANet-v2|R1": 3.41,
+        "ShallowConvNet - CSOANet-v2|R2": 4.43,
+        "ShallowConvNet - CSOANet-v2|R4": 5.25,
+        "MI-BMInet - CSOANet-v2|R1": 6.78,
+        "MI-BMInet - CSOANet-v2|R2": 5.17,
+        "MI-BMInet - CSOANet-v2|R4": 6.45
+      }
+    },
+    "home_residual": {
+      "EEGNet": {
+        "mean": -0.52,
+        "lo": -0.82,
+        "hi": -0.22,
+        "p": 0.0067
+      },
+      "CSOANet-v2": {
+        "mean": 0.01,
+        "lo": -0.43,
+        "hi": 0.46,
+        "p": 0.9784
+      }
+    },
+    "all_residuals": {
+      "EEGNet|R1": 0.29,
+      "EEGNet|R2": -0.52,
+      "EEGNet|R4": 0.23,
+      "ShallowConvNet|R1": -0.95,
+      "ShallowConvNet|R2": 0.54,
+      "ShallowConvNet|R4": 0.41,
+      "MI-BMInet|R1": 0.65,
+      "MI-BMInet|R2": -0.49,
+      "MI-BMInet|R4": -0.16,
+      "CSOANet-v2|R1": 0.01,
+      "CSOANet-v2|R2": 0.47,
+      "CSOANet-v2|R4": -0.48
+    }
+  },
+  "exploratory": {
+    "R1nc-R1 | EEGNet": {
+      "mean": 5.86,
+      "lo": 3.71,
+      "hi": 8.08,
+      "p": 0.0005,
+      "p_holm": 0.023
+    },
+    "R1ct-R1 | EEGNet": {
+      "mean": 3.28,
+      "lo": 2.27,
+      "hi": 4.3,
+      "p": 0.0006,
+      "p_holm": 0.0252
+    },
+    "R1ns-R1 | EEGNet": {
+      "mean": 4.48,
+      "lo": 3.15,
+      "hi": 5.83,
+      "p": 0.0007,
+      "p_holm": 0.0287
+    },
+    "R1nc-R1ct | EEGNet": {
+      "mean": 2.58,
+      "lo": 0.66,
+      "hi": 4.47,
+      "p": 0.0025,
+      "p_holm": 0.0775
+    },
+    "R1nc-R1ns | EEGNet": {
+      "mean": 1.37,
+      "lo": 0.2,
+      "hi": 2.5,
+      "p": 0.0182,
+      "p_holm": 0.364
+    },
+    "R2va-R2 | EEGNet": {
+      "mean": 1.47,
+      "lo": -0.45,
+      "hi": 3.41,
+      "p": 0.1339,
+      "p_holm": 1.0
+    },
+    "R1nc-R1 | ShallowConvNet": {
+      "mean": 3.98,
+      "lo": 2.55,
+      "hi": 5.33,
+      "p": 0.0001,
+      "p_holm": 0.0051
+    },
+    "R1ct-R1 | ShallowConvNet": {
+      "mean": 0.67,
+      "lo": -0.01,
+      "hi": 1.35,
+      "p": 0.0494,
+      "p_holm": 0.7904
+    },
+    "R1ns-R1 | ShallowConvNet": {
+      "mean": 1.47,
+      "lo": 0.94,
+      "hi": 2.0,
+      "p": 0.0005,
+      "p_holm": 0.023
+    },
+    "R1nc-R1ct | ShallowConvNet": {
+      "mean": 3.31,
+      "lo": 1.67,
+      "hi": 4.91,
+      "p": 0.0007,
+      "p_holm": 0.0287
+    },
+    "R1nc-R1ns | ShallowConvNet": {
+      "mean": 2.51,
+      "lo": 1.25,
+      "hi": 3.72,
+      "p": 0.0003,
+      "p_holm": 0.015
+    },
+    "R2va-R2 | ShallowConvNet": {
+      "mean": 2.57,
+      "lo": 0.72,
+      "hi": 4.38,
+      "p": 0.0076,
+      "p_holm": 0.2016
+    },
+    "R1nc-R1 | MI-BMInet": {
+      "mean": 3.74,
+      "lo": 2.01,
+      "hi": 5.45,
+      "p": 0.0007,
+      "p_holm": 0.0287
+    },
+    "R1ct-R1 | MI-BMInet": {
+      "mean": 1.61,
+      "lo": 0.37,
+      "hi": 2.86,
+      "p": 0.0205,
+      "p_holm": 0.3895
+    },
+    "R1ns-R1 | MI-BMInet": {
+      "mean": 2.26,
+      "lo": 1.16,
+      "hi": 3.35,
+      "p": 0.0015,
+      "p_holm": 0.0495
+    },
+    "R1nc-R1ct | MI-BMInet": {
+      "mean": 2.13,
+      "lo": 0.54,
+      "hi": 3.75,
+      "p": 0.0151,
+      "p_holm": 0.3473
+    },
+    "R1nc-R1ns | MI-BMInet": {
+      "mean": 1.48,
+      "lo": 0.11,
+      "hi": 2.88,
+      "p": 0.0378,
+      "p_holm": 0.6804
+    },
+    "R2va-R2 | MI-BMInet": {
+      "mean": 1.09,
+      "lo": -0.1,
+      "hi": 2.33,
+      "p": 0.0911,
+      "p_holm": 1.0
+    },
+    "R1nc-R1 | CSOANet-v2": {
+      "mean": 1.07,
+      "lo": -0.06,
+      "hi": 2.18,
+      "p": 0.062,
+      "p_holm": 0.93
+    },
+    "R1ct-R1 | CSOANet-v2": {
+      "mean": 1.05,
+      "lo": 0.02,
+      "hi": 2.06,
+      "p": 0.0457,
+      "p_holm": 0.7769
+    },
+    "R1ns-R1 | CSOANet-v2": {
+      "mean": 0.69,
+      "lo": -0.65,
+      "hi": 2.03,
+      "p": 0.291,
+      "p_holm": 1.0
+    },
+    "R1nc-R1ct | CSOANet-v2": {
+      "mean": 0.03,
+      "lo": -0.46,
+      "hi": 0.52,
+      "p": 0.9206,
+      "p_holm": 1.0
+    },
+    "R1nc-R1ns | CSOANet-v2": {
+      "mean": 0.39,
+      "lo": -0.18,
+      "hi": 0.96,
+      "p": 0.1513,
+      "p_holm": 1.0
+    },
+    "R2va-R2 | CSOANet-v2": {
+      "mean": 0.66,
+      "lo": -0.25,
+      "hi": 1.57,
+      "p": 0.1301,
+      "p_holm": 1.0
+    },
+    "R2va-R2 | mean of four": {
+      "mean": 1.45,
+      "lo": 0.27,
+      "hi": 2.6,
+      "p": 0.0084,
+      "p_holm": 0.21
+    },
+    "EEGNet-CSOANet-v2 gap: R1nc minus R1": {
+      "mean": 4.78,
+      "lo": 2.66,
+      "hi": 6.88,
+      "p": 0.0011,
+      "p_holm": 0.0374
+    },
+    "EEGNet-CSOANet-v2 gap: R1ct minus R1": {
+      "mean": 2.23,
+      "lo": 0.58,
+      "hi": 3.85,
+      "p": 0.0112,
+      "p_holm": 0.2688
+    },
+    "EEGNet-CSOANet-v2 gap: R1nc minus R1ct": {
+      "mean": 2.55,
+      "lo": 0.77,
+      "hi": 4.33,
+      "p": 0.0052,
+      "p_holm": 0.1508
+    },
+    "EEGNet-CSOANet-v2 gap: R1ns minus R1": {
+      "mean": 3.8,
+      "lo": 1.82,
+      "hi": 5.79,
+      "p": 0.0007,
+      "p_holm": 0.0287
+    },
+    "EEGNet-CSOANet-v2 gap: R2 minus R1": {
+      "mean": 3.5,
+      "lo": 1.38,
+      "hi": 5.61,
+      "p": 0.0018,
+      "p_holm": 0.0576
+    },
+    "EEGNet-CSOANet-v2 gap: R4 minus R1": {
+      "mean": 5.2,
+      "lo": 2.07,
+      "hi": 8.33,
+      "p": 0.0026,
+      "p_holm": 0.078
+    },
+    "EEGNet-CSOANet-v2 gap: R2 minus R1nc": {
+      "mean": -1.29,
+      "lo": -2.23,
+      "hi": -0.32,
+      "p": 0.0152,
+      "p_holm": 0.3473
+    },
+    "EEGNet-CSOANet-v2 gap: R2va minus R1nc": {
+      "mean": -0.48,
+      "lo": -2.41,
+      "hi": 1.44,
+      "p": 0.7049,
+      "p_holm": 1.0
+    },
+    "EEGNet-CSOANet-v2 gap: R1nc minus R1 (logit)": {
+      "mean": 0.26,
+      "lo": 0.12,
+      "hi": 0.39,
+      "p": 0.0007,
+      "p_holm": 0.0287
+    },
+    "MI-BMInet-EEGNet gap: R2 minus R1": {
+      "mean": -2.44,
+      "lo": -3.79,
+      "hi": -1.15,
+      "p": 0.0008,
+      "p_holm": 0.0287
+    },
+    "ShallowConvNet-CSOANet-v2 gap: R4 minus R2": {
+      "mean": 3.3,
+      "lo": 2.05,
+      "hi": 4.53,
+      "p": 0.0005,
+      "p_holm": 0.023
+    },
+    "ShallowConvNet-CSOANet-v2 gap: R4 minus R3": {
+      "mean": -8.09,
+      "lo": -12.43,
+      "hi": -3.89,
+      "p": 0.0072,
+      "p_holm": 0.2016
+    },
+    "ShallowConvNet-MN-CSOANet-v2 gap: R4 minus R2": {
+      "mean": 0.82,
+      "lo": -0.66,
+      "hi": 2.32,
+      "p": 0.2318,
+      "p_holm": 1.0
+    },
+    "ShallowConvNet-MN-CSOANet-v2 gap: R4 minus R3": {
+      "mean": -11.47,
+      "lo": -15.7,
+      "hi": -7.28,
+      "p": 0.0004,
+      "p_holm": 0.0188
+    },
+    "ShallowConvNet-CSOANet-v2 gap: R4 minus R2va": {
+      "mean": 1.38,
+      "lo": -0.11,
+      "hi": 2.89,
+      "p": 0.0659,
+      "p_holm": 0.93
+    },
+    "ShallowConvNet-MI-BMInet gap: R4 minus R2": {
+      "mean": 2.01,
+      "lo": 0.94,
+      "hi": 3.11,
+      "p": 0.0007,
+      "p_holm": 0.0287
+    },
+    "ShallowConvNet-MI-BMInet gap: R4 minus R3": {
+      "mean": 3.09,
+      "lo": 0.85,
+      "hi": 5.37,
+      "p": 0.0169,
+      "p_holm": 0.3549
+    },
+    "ShallowConvNet-MN-MI-BMInet gap: R4 minus R2": {
+      "mean": -0.46,
+      "lo": -1.72,
+      "hi": 0.76,
+      "p": 0.4119,
+      "p_holm": 1.0
+    },
+    "ShallowConvNet-MN-MI-BMInet gap: R4 minus R3": {
+      "mean": -0.3,
+      "lo": -1.88,
+      "hi": 1.3,
+      "p": 0.6724,
+      "p_holm": 1.0
+    },
+    "ShallowConvNet-MI-BMInet gap: R4 minus R2va": {
+      "mean": 0.53,
+      "lo": -0.61,
+      "hi": 1.67,
+      "p": 0.3093,
+      "p_holm": 1.0
+    },
+    "ShallowConvNet-MN - ShallowConvNet | R1": {
+      "mean": -0.1,
+      "lo": -0.66,
+      "hi": 0.46,
+      "p": 0.6978,
+      "p_holm": 1.0
+    },
+    "ShallowConvNet-MN - ShallowConvNet | R1nc": {
+      "mean": -0.2,
+      "lo": -0.9,
+      "hi": 0.48,
+      "p": 0.5107,
+      "p_holm": 1.0
+    },
+    "ShallowConvNet-MN - ShallowConvNet | R2": {
+      "mean": 3.48,
+      "lo": 1.95,
+      "hi": 5.01,
+      "p": 0.0005,
+      "p_holm": 0.023
+    },
+    "ShallowConvNet-MN - ShallowConvNet | R3": {
+      "mean": 4.39,
+      "lo": 2.58,
+      "hi": 6.26,
+      "p": 0.0003,
+      "p_holm": 0.015
+    },
+    "ShallowConvNet-MN - ShallowConvNet | R4": {
+      "mean": 1.01,
+      "lo": 0.34,
+      "hi": 1.64,
+      "p": 0.0072,
+      "p_holm": 0.2016
+    },
+    "R1nc-R1 | ShallowConvNet-MN": {
+      "mean": 3.88,
+      "lo": 2.82,
+      "hi": 4.94,
+      "p": 0.0003,
+      "p_holm": 0.015
+    }
+  },
+  "csoanet_R3_diagnosis": {
+    "n_runs": 30,
+    "n_learned": 10,
+    "n_flagged": 11,
+    "folds_with_mixed_outcome": 5,
+    "n_folds": 10,
+    "not_learned": {
+      "median_bacc": 52.6,
+      "median_train_acc": 53.9,
+      "median_best_epoch": 12.0,
+      "mean_minus_R4": -15.86
+    },
+    "learned": {
+      "median_bacc": 70.9,
+      "median_train_acc": 73.8,
+      "median_best_epoch": 95.0,
+      "mean_minus_R4": -0.66
+    }
+  }
+}
